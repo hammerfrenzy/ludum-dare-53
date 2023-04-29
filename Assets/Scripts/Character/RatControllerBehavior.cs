@@ -10,9 +10,15 @@ public class RatControllerBehavior : MonoBehaviour
     public float Speed = 5.0f;
     public GameObject selectedTriangle;
     private CharacterController characterController;
+    private SpriteRenderer spriteRenderer;
 
     private bool isOnLadder = false;
     private bool isBeingControlled = false;
+
+    [Header("Rat Identification")]
+    public bool isRico;
+    public bool isHorace;
+    public bool isNixie;
 
     [Header("Animation State Flags")]
     public bool isWalking = false;
@@ -26,6 +32,7 @@ public class RatControllerBehavior : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -54,14 +61,13 @@ public class RatControllerBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && currentInteractStation != null)
             {
                 isInteracting = !isInteracting;
+                animator.SetBool("isInteracting", isInteracting);
                 currentInteractStation.SetInteracting(isInteracting, this);
             }
 
             if (isInteracting)
             {
-                isInteracting = true;
                 dx = 0;
-                animator.SetBool("isInteracting", true);
             }
 
             if (isOnLadder)
@@ -72,9 +78,23 @@ public class RatControllerBehavior : MonoBehaviour
 
             if (dx == 0)
             {
+                isWalking = false;
+                animator.SetBool("isWalking", false);
+                FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
+            }
+            else
+            {
                 isWalking = true;
                 animator.SetBool("isWalking", true);
-                FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
+
+                if(dx < 0)
+                {
+                    spriteRenderer.flipX = true;
+                } 
+                else
+                {
+                    spriteRenderer.flipX = false;
+                }
             }
         }
 
@@ -82,6 +102,7 @@ public class RatControllerBehavior : MonoBehaviour
         if (!isOnLadder) 
         { 
             dy = -4;
+            isClimbing = false;
         }
         
         var movement = new Vector2(dx, dy);
