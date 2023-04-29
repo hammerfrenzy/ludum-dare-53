@@ -69,6 +69,11 @@ public class RatControllerBehavior : MonoBehaviour
 
     public void ChangeControl(bool giveControl)
     {
+        if(!giveControl && currentInteractStation != null)
+        {
+            isInteracting = false;
+            currentInteractStation.SetInteracting(isInteracting);
+        }
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
     }

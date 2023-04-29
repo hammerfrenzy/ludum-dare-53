@@ -10,6 +10,8 @@ public class HelmStation : MonoBehaviour, InteractStation
     public GameObject steeringUi;
     public float steeringInput;
 
+    public float steeringSensitivity = 0.05f;
+
     private bool isInteracting;
 
     // Start is called before the first frame update
@@ -25,7 +27,7 @@ public class HelmStation : MonoBehaviour, InteractStation
         if(!isInteracting) { return; }
 
         var dx = Input.GetAxis("Horizontal");
-        steeringInput += dx * 0.06f;
+        steeringInput += dx * steeringSensitivity;
         steeringInput = Mathf.Clamp(steeringInput, -90f, 90f);
     }
 

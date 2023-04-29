@@ -19,7 +19,7 @@ public class ShipMovement : MonoBehaviour
         var desiredVector = new Vector3((float)(xComponent * Time.deltaTime), (float)(yComponent * Time.deltaTime)) * speed;
         currentVector = desiredVector;
 
-        speed = 0.020f;
+        speed = 0.050f;
         turnProgress = 0f;
         turnSpeed = 0.0000005f;
     }
