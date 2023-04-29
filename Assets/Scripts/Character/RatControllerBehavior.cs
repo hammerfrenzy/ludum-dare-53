@@ -5,7 +5,7 @@ using UnityEngine;
 public class RatControllerBehavior : MonoBehaviour
 {
     public float Speed = 5.0f;
-
+    public GameObject selectedTriangle;
     private CharacterController characterController;
 
     private bool isOnLadder = false;
@@ -35,6 +35,7 @@ public class RatControllerBehavior : MonoBehaviour
     public void ChangeControl(bool giveControl)
     {
         isBeingControlled = giveControl;
+        selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
     }
 
     private void OnTriggerEnter(Collider other)
