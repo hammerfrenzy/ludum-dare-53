@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - CameraTargetActor
+  - Station
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: Rats
     uniqueID: 1399207801
+    locked: 0
+  - name: Minigames
+    uniqueID: 4192845527
     locked: 0

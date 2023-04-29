@@ -10,6 +10,9 @@ public class RatControllerBehavior : MonoBehaviour
 
     private bool isOnLadder = false;
     private bool isBeingControlled = false;
+    private bool isInteracting = false;
+
+    private InteractStation currentInteractStation = null;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class RatControllerBehavior : MonoBehaviour
         var dx = Input.GetAxis("Horizontal");
         var dy = Input.GetAxis("Vertical");
 
+
         if(!isBeingControlled)
         {
             dx = 0;
@@ -35,7 +39,18 @@ public class RatControllerBehavior : MonoBehaviour
 
         if (isBeingControlled)
         {
-            if(dx == 0)
+            if (Input.GetKeyDown(KeyCode.E) && currentInteractStation != null)
+            {
+                isInteracting = !isInteracting;
+                currentInteractStation.SetInteracting(isInteracting);
+            }
+
+            if(isInteracting)
+            {
+                dx = 0;
+            }
+
+            if (dx == 0)
             {
                 FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
             }
@@ -66,11 +81,24 @@ public class RatControllerBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Station")
+        {
+            currentInteractStation = other.GetComponent<InteractStation>();
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Ladder")
         {
             isOnLadder = false;
+        }
+
+        if (other.gameObject.tag == "Station")
+        {
+            currentInteractStation = null;
         }
     }
 }
