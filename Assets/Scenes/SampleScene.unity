@@ -2762,7 +2762,7 @@ Animator:
   m_GameObject: {fileID: 1105778917}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 373a7dd2aa2cac1489ce6e082b05e6f9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 43abba2e92450ed45b3fff2015884606, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4494,6 +4494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097932967}
   - component: {fileID: 2097932966}
+  - component: {fileID: 2097932968}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -4526,6 +4527,168 @@ MonoBehaviour:
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
+  - name: Rico Delivery
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RQ1
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RQ2
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RQ3
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RQ4
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RA1
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RA2
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RA3
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: RA4
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: Horace Delivery
+    clip: {fileID: 8300000, guid: e43380e973264f841a9829eac7d3023f, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HQ1
+    clip: {fileID: 8300000, guid: 430eac124295e614888842d2dcedbce2, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HQ2
+    clip: {fileID: 8300000, guid: 570eac6afb16de34685cc28c082e4e60, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HQ3
+    clip: {fileID: 8300000, guid: cc1f98de79278a74ab691b90af3cf7f8, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HQ4
+    clip: {fileID: 8300000, guid: 11e2fa6a1696d6d4d9f76f1e15b50dde, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HA1
+    clip: {fileID: 8300000, guid: d79457e9de80cea4eb4cbed4232223e2, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HA2
+    clip: {fileID: 8300000, guid: bd60d63454af97e40a359f0568541cda, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HA3
+    clip: {fileID: 8300000, guid: 81e403c0af70e2b4da11ab29f67d42cd, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: HA4
+    clip: {fileID: 8300000, guid: b64b1a83aaf947c49ba82067c41b912c, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: Nixie Delivery
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NQ1
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NQ2
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NQ3
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NQ4
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NA1
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NA2
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NA3
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
+  - name: NA4
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.349
+    pitch: 1.41
+    loop: 0
+    source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0
 --- !u!4 &2097932967
@@ -4543,6 +4706,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097932968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097932965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64843fd47ee7a945bc5edf31d44f655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1561729697848977648
 PrefabInstance:
   m_ObjectHideFlags: 0

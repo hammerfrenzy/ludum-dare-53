@@ -6,6 +6,7 @@ public class RatControllerBehavior : MonoBehaviour
 {
 
     Animator animator;
+    VoicelineManager voiceManager;
 
     public float Speed = 5.0f;
     public GameObject selectedTriangle;
@@ -28,6 +29,11 @@ public class RatControllerBehavior : MonoBehaviour
     private InteractStation currentInteractStation = null;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        voiceManager = FindObjectOfType<VoicelineManager>();
+    }
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -63,6 +69,11 @@ public class RatControllerBehavior : MonoBehaviour
                 isInteracting = !isInteracting;
                 animator.SetBool("isInteracting", isInteracting);
                 currentInteractStation.SetInteracting(isInteracting, this);
+
+                if (isInteracting)
+                {
+                    voiceManager.PlayAknowledgement(isRico, isHorace, isNixie);
+                }
             }
 
             if (isInteracting)
@@ -121,6 +132,11 @@ public class RatControllerBehavior : MonoBehaviour
 
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
+        
+        if(giveControl) 
+        {
+            voiceManager.PlayQuip(isRico, isHorace, isNixie);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
