@@ -20,10 +20,23 @@ public class RatControllerBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isBeingControlled) { return; }
-
         var dx = Input.GetAxis("Horizontal");
         var dy = Input.GetAxis("Vertical");
+
+        if(!isBeingControlled)
+        {
+            dx = 0;
+
+            //fake gravity
+            if(isOnLadder)
+            {
+                dy = 0;
+            }
+            else
+            {
+                dy = -4;
+            }
+        }
 
         // fake gravity
         if (!isOnLadder) { dy = -4; }
