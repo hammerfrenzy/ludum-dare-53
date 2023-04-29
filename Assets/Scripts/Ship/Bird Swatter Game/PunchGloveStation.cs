@@ -10,11 +10,7 @@ public class PunchGloveStation : MonoBehaviour, InteractStation
     {
         if (isInteracting) // TODO: && Bird is attacking
         {
-            Minigame.ManTheHarpoons(this, rat);
-        }
-        else
-        {
-            rat.ChangeControl(true);
+            Minigame.ManTheHarpoons(rat);
         }
     }
 }

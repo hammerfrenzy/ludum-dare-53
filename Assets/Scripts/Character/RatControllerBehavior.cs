@@ -88,13 +88,15 @@ public class RatControllerBehavior : MonoBehaviour
         characterController.Move(movement * Speed * Time.deltaTime);
     }
 
-    public void ChangeControl(bool giveControl)
+    public void ChangeControl(bool giveControl, bool stopInteracting)
     {
-        if(!giveControl && currentInteractStation != null)
+        var stopDueToLossOfControl = !giveControl && currentInteractStation != null;
+        if (stopInteracting || stopDueToLossOfControl)
         {
             isInteracting = false;
             currentInteractStation.SetInteracting(isInteracting, this);
         }
+
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
     }
