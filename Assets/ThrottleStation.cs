@@ -30,7 +30,7 @@ public class ThrottleStation : MonoBehaviour, InteractStation
     }
 
     // Update is called once per frame
-    public void SetInteracting(bool interacting)
+    public void SetInteracting(bool interacting, RatControllerBehavior rat)
     {
         isInteracting = interacting;
     }

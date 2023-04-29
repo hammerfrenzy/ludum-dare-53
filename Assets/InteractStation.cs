@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface InteractStation 
 {
-    public void SetInteracting(bool interacting);
+    public void SetInteracting(bool interacting, RatControllerBehavior rat);
 }

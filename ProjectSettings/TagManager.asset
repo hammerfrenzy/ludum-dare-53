@@ -8,6 +8,7 @@ TagManager:
   - CameraTargetActor
   - Station
   - InnocentTown
+  - Bird
   layers:
   - Default
   - TransparentFX

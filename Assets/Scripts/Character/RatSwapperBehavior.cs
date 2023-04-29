@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class RatSwapperBehavior : MonoBehaviour
@@ -13,8 +12,11 @@ public class RatSwapperBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RatControllers[controlledIndex].ChangeControl(true);
+        var firstRat = RatControllers[controlledIndex];
+        firstRat.ChangeControl(true);
+
         cameraTargets = FindObjectsOfType<CameraTargetBehavior>();
+        ActivateCameraClosestToRat(firstRat);
     }
 
     // Update is called once per frame

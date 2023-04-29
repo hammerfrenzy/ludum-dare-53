@@ -35,7 +35,7 @@ public class RatControllerBehavior : MonoBehaviour
         var dy = Input.GetAxis("Vertical");
 
 
-        if(!isBeingControlled)
+        if (!isBeingControlled)
         {
             dx = 0;
             isWalking = false;
@@ -54,10 +54,10 @@ public class RatControllerBehavior : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && currentInteractStation != null)
             {
                 isInteracting = !isInteracting;
-                currentInteractStation.SetInteracting(isInteracting);
+                currentInteractStation.SetInteracting(isInteracting, this);
             }
 
-            if(isInteracting)
+            if (isInteracting)
             {
                 isInteracting = true;
                 dx = 0;
@@ -86,7 +86,6 @@ public class RatControllerBehavior : MonoBehaviour
         
         var movement = new Vector2(dx, dy);
         characterController.Move(movement * Speed * Time.deltaTime);
-
     }
 
     public void ChangeControl(bool giveControl)
@@ -94,7 +93,7 @@ public class RatControllerBehavior : MonoBehaviour
         if(!giveControl && currentInteractStation != null)
         {
             isInteracting = false;
-            currentInteractStation.SetInteracting(isInteracting);
+            currentInteractStation.SetInteracting(isInteracting, this);
         }
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
