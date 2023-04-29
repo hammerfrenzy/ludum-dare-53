@@ -103,6 +103,7 @@ public class RatControllerBehavior : MonoBehaviour
         { 
             dy = -4;
             isClimbing = false;
+            animator.SetBool("isClimbing", false);
         }
         
         var movement = new Vector2(dx, dy);
