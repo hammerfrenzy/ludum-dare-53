@@ -26,7 +26,6 @@ public class ShipBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(helmStation.steeringInput);
         shipMovement.desiredHeading += helmStation.steeringInput * 0.0001f;
     }
 
