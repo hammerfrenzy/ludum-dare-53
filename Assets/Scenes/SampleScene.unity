@@ -2812,6 +2812,12 @@ MonoBehaviour:
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
+  - name: Walking (Metal Floor)
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.897
+    pitch: 1.41
+    loop: 1
+    source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0
 --- !u!4 &2097932967

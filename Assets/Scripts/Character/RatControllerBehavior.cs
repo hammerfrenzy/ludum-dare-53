@@ -33,11 +33,23 @@ public class RatControllerBehavior : MonoBehaviour
             }
         }
 
+        if (isBeingControlled)
+        {
+            if(dx == 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
+            }
+        }
+
         // fake gravity
-        if (!isOnLadder) { dy = -4; }
+        if (!isOnLadder) 
+        { 
+            dy = -4;
+        }
         
         var movement = new Vector2(dx, dy);
         characterController.Move(movement * Speed * Time.deltaTime);
+
     }
 
     public void ChangeControl(bool giveControl)
