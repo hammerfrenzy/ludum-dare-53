@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class RatControllerBehavior : MonoBehaviour
 {
+
+    Animator animator;
+
     public float Speed = 5.0f;
     public GameObject selectedTriangle;
     private CharacterController characterController;
 
     private bool isOnLadder = false;
     private bool isBeingControlled = false;
-    private bool isInteracting = false;
+
+    [Header("Animation State Flags")]
+    public bool isWalking = false;
+    public bool isClimbing = false;
+    public bool isInteracting = false;
 
     private InteractStation currentInteractStation = null;
 
@@ -18,6 +25,7 @@ public class RatControllerBehavior : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,11 +38,15 @@ public class RatControllerBehavior : MonoBehaviour
         if(!isBeingControlled)
         {
             dx = 0;
+            isWalking = false;
+            isClimbing = false;
+            isInteracting = false;
 
             if(isOnLadder)
             {
                 dy = 0;
             }
+
         }
 
         if (isBeingControlled)
@@ -47,11 +59,21 @@ public class RatControllerBehavior : MonoBehaviour
 
             if(isInteracting)
             {
+                isInteracting = true;
                 dx = 0;
+                animator.SetBool("isInteracting", true);
+            }
+
+            if (isOnLadder)
+            {
+                isClimbing = true;
+                animator.SetBool("isClimbing", true);
             }
 
             if (dx == 0)
             {
+                isWalking = true;
+                animator.SetBool("isWalking", true);
                 FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
             }
         }
