@@ -23,7 +23,7 @@ public class VoicelineManager : MonoBehaviour
     private string[] horaceAcknowledgements = { "HA1", "HA2", "HA3", "HA4" };
     private string[] nixieAcknowledgements = { "NA1", "NA2", "NA3", "NA4" };
 
-    private void Start()
+    private void Awake()
     {
         audioManager = GetComponent<AudioManager>();
     }

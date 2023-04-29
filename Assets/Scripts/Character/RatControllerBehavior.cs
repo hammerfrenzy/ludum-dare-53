@@ -132,8 +132,8 @@ public class RatControllerBehavior : MonoBehaviour
 
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
-        
-        if(giveControl) 
+
+        if (giveControl && voiceManager != null) 
         {
             voiceManager.PlayQuip(isRico, isHorace, isNixie);
         }
