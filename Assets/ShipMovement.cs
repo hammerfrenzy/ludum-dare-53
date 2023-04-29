@@ -10,6 +10,8 @@ public class ShipMovement : MonoBehaviour
     public float turnSpeed;
     public float turnProgress;
 
+    private InnocentTown currentTown = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,5 +47,30 @@ public class ShipMovement : MonoBehaviour
 
         transform.eulerAngles = new Vector3(0, 0, Vector3.SignedAngle(new Vector3(0, 1, 0), currentVector, new Vector3(0, 0, 1)));
         transform.position += speed * Time.deltaTime * currentVector;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "InnocentTown")
+        {
+            currentTown = other.GetComponent<InnocentTown>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "InnocentTown")
+        {
+            currentTown = null;
+        }
+    }
+
+    public bool isOverUninfectedInnocentTown()
+    {
+        if(currentTown != null && !currentTown.infected)
+        {
+            return true;
+        }
+        return false;
     }
 }

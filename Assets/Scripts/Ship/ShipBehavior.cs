@@ -17,6 +17,8 @@ public class ShipBehavior : MonoBehaviour
     HelmStation helmStation;
 
     ThrottleStation throttleStation;
+
+    DropStation dropStation;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class ShipBehavior : MonoBehaviour
         helmStation = GameObject.Find("HelmStation").GetComponent<HelmStation>();
 
         throttleStation = GameObject.Find("ThrottleStation").GetComponent<ThrottleStation>();
+
+        dropStation = GameObject.Find("DropStation").GetComponent<DropStation>();
     }
 
     // Update is called once per frame
@@ -33,6 +37,10 @@ public class ShipBehavior : MonoBehaviour
     {
         shipMovement.desiredHeading += helmStation.steeringInput * 0.0001f;
         shipMovement.speed = (throttleStation.speedPercentage/100) * maxSpeed;
+
+
+        dropStation.SetInteracting(shipMovement.isOverUninfectedInnocentTown());
+        
     }
 
     public void DamageHullIntegrity(int damage)
