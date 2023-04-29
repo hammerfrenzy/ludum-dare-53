@@ -287,7 +287,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3329888891094848100, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
   m_PrefabInstance: {fileID: 957767762}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 149337034}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42d270804dffc04eb7371f015c75c7a, type: 3}
@@ -443,6 +443,32 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 17, y: 9.25, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &149337034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7079225487357400435, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+  m_PrefabInstance: {fileID: 957767762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &149337038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149337034}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f26f6f676dc97f4cab9d7d8622ec54c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &241290032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1704,7 +1730,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7079225487357400435, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 149337038}
   m_SourcePrefab: {fileID: 100100000, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
 --- !u!1 &1048887988
 GameObject:
@@ -3263,7 +3292,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Walking (Metal Floor)
     clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
-    volume: 0.897
+    volume: 0.349
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
@@ -3422,16 +3451,32 @@ PrefabInstance:
       value: Rico
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a788d714227f41e459ec6dc412ca6fef, type: 3}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.g
-      value: 0.4764151
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.r
-      value: 0.72477007
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

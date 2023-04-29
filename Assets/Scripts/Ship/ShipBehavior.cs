@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShipBehavior : MonoBehaviour
 {
     private ShipMovement bearing;
-    private int hullIntegrity = 100;
+    private int currentHullIntegrity = 100;
+    public int maxHullIntegrity = 100; 
 
 
     // Start is called before the first frame update
@@ -18,5 +19,15 @@ public class ShipBehavior : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void DamageHullIntegrity(int damage)
+    {
+        currentHullIntegrity = currentHullIntegrity - damage;
+    }
+
+    public void FixHullIntegrity()
+    {
+        currentHullIntegrity = maxHullIntegrity;
     }
 }
