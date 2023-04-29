@@ -27,8 +27,6 @@ public class HelmStation : MonoBehaviour, InteractStation
         var dx = Input.GetAxis("Horizontal");
         steeringInput += dx * 0.06f;
         steeringInput = Mathf.Clamp(steeringInput, -90f, 90f);
-
-        Debug.Log(steeringInput);
     }
 
     void FixedUpdate()
@@ -36,8 +34,6 @@ public class HelmStation : MonoBehaviour, InteractStation
         steeringUi.GetComponent<SpriteRenderer>().enabled = isInteracting;
 
         steeringUi.transform.eulerAngles = new Vector3(0,0,-steeringInput);
-
-
     }
 
     public void SetInteracting(bool interacting)
