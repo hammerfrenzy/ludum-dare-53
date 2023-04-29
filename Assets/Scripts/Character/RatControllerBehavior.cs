@@ -27,14 +27,9 @@ public class RatControllerBehavior : MonoBehaviour
         {
             dx = 0;
 
-            //fake gravity
             if(isOnLadder)
             {
                 dy = 0;
-            }
-            else
-            {
-                dy = -4;
             }
         }
 
