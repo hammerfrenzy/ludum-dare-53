@@ -392,11 +392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7079225487357400435, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Name
-      value: Rat Three
+      value: Nixie
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.b
-      value: 0.5137255
+      value: 0.75061363
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.g
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.r
-      value: 0.8872138
+      value: 0.5137255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1566,19 +1566,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7079225487357400435, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Name
-      value: Rat Two
+      value: Horace
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.b
-      value: 0.9137255
+      value: 0.53696406
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.g
-      value: 0.8139286
+      value: 0.5137255
       objectReference: {fileID: 0}
     - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Color.r
-      value: 0.5137255
+      value: 0.9137255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2948,7 +2948,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7079225487357400435, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Name
-      value: Rat One
+      value: Rico
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987700634558212179, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.72477007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
