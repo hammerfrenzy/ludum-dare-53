@@ -13,12 +13,6 @@ public class InnocentTown : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void InfectTown()
     {
         infected = true;

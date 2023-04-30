@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipBehavior : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class ShipBehavior : MonoBehaviour
     ThrottleStation throttleStation;
 
     DropStation dropStation;
+
+    InnocentTown[] innocentTowns;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +33,18 @@ public class ShipBehavior : MonoBehaviour
         throttleStation = GameObject.Find("ThrottleStation").GetComponent<ThrottleStation>();
 
         dropStation = GameObject.Find("DropStation").GetComponent<DropStation>();
+
+        innocentTowns = GameObject.FindObjectsOfType<InnocentTown>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!innocentTowns.Any(town => !town.infected))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
         shipMovement.desiredHeading += helmStation.steeringInput * 0.0001f;
         shipMovement.speed = (throttleStation.speedPercentage/100) * maxSpeed;
 
