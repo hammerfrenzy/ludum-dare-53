@@ -21,12 +21,15 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     public GameObject FireHazardTemplate;
     public PunchGloveStation PunchGloveStation;
     public AltimeterStation AltimeterStation;
+    public RatSwapperBehavior RatSwapper;
 
     public Transform MainDeckHazardTransform;
     public Transform EngineRoomHazardTransform;
     public Transform BalloonDeckHazardTransform;
 
     public List<HazardAlertUIBehavior> alertUIBehaviors;
+
+    private AudioManager audioManager;
 
     // Would be cool to show "completion time"
     // time2speedrun
@@ -43,6 +46,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         sceneStartTime = Time.time;
 
         activeHazards = new List<IShipHazard>();
@@ -100,7 +104,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         availableHazardLocations.RemoveAt(index);
 
         // Test specific hazards by uncommenting below
-        location = HazardLocation.EngineRoom;
+        //location = HazardLocation.Bird;
 
         switch (location)
         {
@@ -151,11 +155,13 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     {
         AltimeterStation.TriggerBalloonDeflation(this, 35);
         activeHazards.Add(AltimeterStation);
+        RatSwapper.SetIsInMinigame(true);
     }
 
     public void StartBirdMinigame()
     {
-        FindObjectOfType<AudioManager>().Play("Bird Call");
+        audioManager.Play("Bird Call");
+        RatSwapper.SetIsInMinigame(true);
         PunchGloveStation.TriggerBirdAttack(this, 50);
         activeHazards.Add(PunchGloveStation);
     }
@@ -165,6 +171,11 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         // return hazard location to available list
         availableHazardLocations.Add(hazard.Location);
         activeHazards.Remove(hazard);
+
+        if (hazard.Location == HazardLocation.Bird || hazard.Location == HazardLocation.Altimeter)
+        {
+            RatSwapper.SetIsInMinigame(false);
+        }
     }
 
     public void HazardDestroyedTheShip()

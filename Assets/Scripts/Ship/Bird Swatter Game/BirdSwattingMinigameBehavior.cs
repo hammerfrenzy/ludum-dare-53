@@ -44,7 +44,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
         if (fireCooldown > 0) fireCooldown -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.A) && fireCooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.Space) && fireCooldown <= 0)
         {
             FireHarpoon();
         }
