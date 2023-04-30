@@ -13,7 +13,7 @@ public class DropStation : MonoBehaviour, IInteractStation
     SpriteRenderer leverUi;
     private RatControllerBehavior interactingRat;
     VoicelineManager voiceManager;
-
+    AudioManager audioManager;
     private float leverProgress = 0f;
 
     private bool isStuck = true;
@@ -31,6 +31,7 @@ public class DropStation : MonoBehaviour, IInteractStation
         leverUi = GameObject.Find("DeliveryLeverUI").GetComponent<SpriteRenderer>();
         cargoSpawnerBehavior = GameObject.FindObjectOfType<CargoSpawnerBehavior>();
         voiceManager = FindObjectOfType<VoicelineManager>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -48,6 +49,10 @@ public class DropStation : MonoBehaviour, IInteractStation
         {
             if (isStuck)
             {
+                if(stuckProgress > 0.5f && stuckProgress < 1.5f)
+                {
+                    audioManager.Play("Lever Stuck");
+                }
                 leverUi.transform.eulerAngles = new Vector3(0, 0, Random.Range(10, 30));
                 stuckProgress += dx * 0.7f + Time.deltaTime;
                 if(stuckProgress > stuckLength)
@@ -62,6 +67,7 @@ public class DropStation : MonoBehaviour, IInteractStation
                 leverUi.transform.eulerAngles = new Vector3(0, 0, -110 * (leverProgress / 100) + 10);
                 if(leverProgress == 100)
                 {
+                    audioManager.Play("Delivery Chute Open");
                     cargoSpawnerBehavior.MakeDelivery();
                     ResetProgress();
                     voiceManager.PlayDelivery(interactingRat.isRico, interactingRat.isHorace, interactingRat.isNixie);
