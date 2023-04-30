@@ -16,7 +16,6 @@ public class MainMenuBehavior : MonoBehaviour
     {
         if(Input.anyKeyDown)
         {
-            Debug.Log("fus");
             SceneManager.LoadScene("SampleScene");
         }
     }

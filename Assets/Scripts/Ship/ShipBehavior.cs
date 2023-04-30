@@ -20,6 +20,8 @@ public class ShipBehavior : MonoBehaviour
     DropStation dropStation;
     InnocentTown[] innocentTowns;
 
+    ShipEventCoordinatorBehavior shipEventCoordinatorBehavior;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,8 @@ public class ShipBehavior : MonoBehaviour
         dropStation = GameObject.Find("DropStation").GetComponent<DropStation>();
 
         innocentTowns = GameObject.FindObjectsOfType<InnocentTown>();
+
+        shipEventCoordinatorBehavior = GameObject.FindAnyObjectByType<ShipEventCoordinatorBehavior>();
     }
 
     // Update is called once per frame
@@ -40,7 +44,7 @@ public class ShipBehavior : MonoBehaviour
     {
         if(!innocentTowns.Any(town => !town.infected))
         {
-            SceneManager.LoadScene("GameOver");
+            shipEventCoordinatorBehavior.GameOver(isWin: true);
         }
 
         shipMovement.desiredHeading += helmStation.steeringInput * 0.0001f;

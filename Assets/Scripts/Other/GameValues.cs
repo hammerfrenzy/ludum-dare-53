@@ -1,5 +1,6 @@
 public class GameValues
 {
-    public static float timeInAir { get; set; }
+    public static bool IsWin { get; set; }
+    public static float TimeInAir { get; set; }
 
 }

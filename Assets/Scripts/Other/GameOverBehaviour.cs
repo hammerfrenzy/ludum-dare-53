@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,18 @@ using UnityEngine.UI;
 
 public class GameOverBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Text gameOverText;
 
-    Text time;
     void Awake()
     {
-        time = GameObject.Find("Game Over Time").GetComponent<Text>();
-        time.text = GameValues.timeInAir.ToString() + " Seconds";
-    }
+        gameOverText = GameObject.Find("Game Over Text").GetComponent<Text>();
+        TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var gameOverString = GameValues.IsWin ? "You spread the plague in " : "You kept the ship alive for ";
+
+        gameOverString += timeSpan.ToString("mm':'ss") + "!!";
+
+        gameOverText.text = gameOverString;
     }
 
     public void WinScreen()

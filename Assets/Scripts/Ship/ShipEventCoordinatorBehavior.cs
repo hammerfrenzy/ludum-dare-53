@@ -154,8 +154,14 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void HazardDestroyedTheShip()
     {
+        GameOver(isWin: false);
+    }
+
+    public void GameOver(bool isWin)
+    {
         var youFlewForThisLong = Time.time - sceneStartTime;
-        GameValues.timeInAir = youFlewForThisLong;
+        GameValues.TimeInAir = youFlewForThisLong;
+        GameValues.IsWin = isWin;
         SceneManager.LoadScene("GameOver");
     }
 }
