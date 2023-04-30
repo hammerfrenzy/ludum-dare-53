@@ -155,13 +155,11 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     {
         AltimeterStation.TriggerBalloonDeflation(this, 35);
         activeHazards.Add(AltimeterStation);
-        RatSwapper.SetIsInMinigame(true);
     }
 
     public void StartBirdMinigame()
     {
         audioManager.Play("Bird Call");
-        RatSwapper.SetIsInMinigame(true);
         PunchGloveStation.TriggerBirdAttack(this, 50);
         activeHazards.Add(PunchGloveStation);
     }

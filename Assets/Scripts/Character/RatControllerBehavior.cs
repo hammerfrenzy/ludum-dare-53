@@ -183,8 +183,10 @@ public class RatControllerBehavior : MonoBehaviour
 
         if (other.gameObject.tag == "Station")
         {
-            selectionRenderer.sprite = InteractSprite;
             currentInteractStation = other.GetComponent<IInteractStation>();
+
+            var sprite = currentInteractStation.CanInteract() ? InteractSprite : selectionTriangle;
+            selectionRenderer.sprite = sprite;
         }
     }
 
@@ -196,9 +198,11 @@ public class RatControllerBehavior : MonoBehaviour
             // It shouldn't immediately set the interact station.
             if (currentInteractStation == null)
             {
-                selectionRenderer.sprite = InteractSprite;
                 currentInteractStation = other.GetComponent<IInteractStation>();
             }
+
+            var sprite = currentInteractStation.CanInteract() ? InteractSprite : selectionTriangle;
+            selectionRenderer.sprite = sprite;
         }
     }
 
