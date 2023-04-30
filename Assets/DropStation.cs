@@ -32,11 +32,6 @@ public class DropStation : MonoBehaviour, IInteractStation
     // Update is called once per frame
     void Update()
     {
-        if(!isAvailable && interactingRat != null)
-        {
-            interactingRat.ChangeControl(true);
-        }
-
         interactUi.GetComponent<SpriteRenderer>().enabled = isAvailable;
 
         if (!isInteracting) { return; }
@@ -85,6 +80,11 @@ public class DropStation : MonoBehaviour, IInteractStation
     {
         isInteracting = interacting;
         interactingRat = rat;
+    }
+
+    public bool CanInteract()
+    {
+        return isAvailable;
     }
 
     public void SetInnocentTown(InnocentTown town)
