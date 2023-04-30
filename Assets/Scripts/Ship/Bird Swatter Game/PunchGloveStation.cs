@@ -13,13 +13,13 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
     public bool RetainControlOnSwap { get { return false; } }
 
     private ShipEventCoordinatorBehavior reportBackToCoordinator;
-    private bool IsBirdAttacking = false;
+    private bool isBirdAttacking = false;
 
     private float timeUntilBirdDestruction = 0;
 
     void Update()
     {
-        if (!IsBirdAttacking) return;
+        if (!isBirdAttacking) return;
 
         timeUntilBirdDestruction -= Time.deltaTime;
         if (timeUntilBirdDestruction <= 0)
@@ -30,7 +30,7 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
 
     public void TriggerBirdAttack(ShipEventCoordinatorBehavior coordinator, float timeUntilBirdDestroysEverything)
     {
-        IsBirdAttacking = true;
+        isBirdAttacking = true;
         reportBackToCoordinator = coordinator;
         CountdownHolderForEnableDisable.SetActive(true);
         timeUntilBirdDestruction = timeUntilBirdDestroysEverything;
@@ -39,19 +39,19 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
 
     public void BirdThwarted()
     {
-        IsBirdAttacking = false;
+        isBirdAttacking = false;
         CountdownHolderForEnableDisable.SetActive(false);
         reportBackToCoordinator.HazardWasResolved(this);
     }
 
     public bool CanInteract() 
     {
-        return IsBirdAttacking; 
+        return isBirdAttacking; 
     }
 
     public void SetInteracting(bool isInteracting, RatControllerBehavior rat)
     {
-        if (isInteracting && IsBirdAttacking)
+        if (isInteracting && isBirdAttacking)
         {
             Minigame.ManTheHarpoons(this, rat);
         }

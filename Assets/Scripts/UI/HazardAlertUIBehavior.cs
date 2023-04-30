@@ -28,7 +28,7 @@ public class HazardAlertUIBehavior : MonoBehaviour
         switch (location)
         {
             case HazardLocation.Altimeter:
-                return "Altimeter";
+                return "Pump Pressure Low";
             case HazardLocation.Bird:
                 return "Bird Attack";
             case HazardLocation.BalloonRoom:

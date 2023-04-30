@@ -20,6 +20,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 {
     public GameObject FireHazardTemplate;
     public PunchGloveStation PunchGloveStation;
+    public AltimeterStation AltimeterStation;
 
     public Transform MainDeckHazardTransform;
     public Transform EngineRoomHazardTransform;
@@ -97,16 +98,22 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         var index = Random.Range(0, availableHazardLocations.Count);
         var location = availableHazardLocations[index];
         availableHazardLocations.RemoveAt(index);
-
+        
+        // Test specific hazards by uncommenting below
+        // location = HazardLocation.Altimeter;
+        
         switch (location)
         {
-            case HazardLocation.MainDeck:
-            case HazardLocation.EngineRoom:
-            case HazardLocation.BalloonRoom:
-                StartAFire(location);
+            case HazardLocation.Altimeter:
+                StartPumpMinigame();
                 break;
             case HazardLocation.Bird:
                 StartBirdMinigame();
+                break;
+            case HazardLocation.BalloonRoom:
+            case HazardLocation.EngineRoom:
+            case HazardLocation.MainDeck:
+                StartAFire(location);
                 break;
         }
         
@@ -138,6 +145,12 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         var hazardScript = hazardObject.GetComponent<IShipHazard>();
         hazardScript.SetCoordinatorAndLocation(this, location);
         activeHazards.Add(hazardScript);
+    }
+
+    public void StartPumpMinigame()
+    {
+        AltimeterStation.TriggerBalloonDeflation(this, 35);
+        activeHazards.Add(AltimeterStation);
     }
 
     public void StartBirdMinigame()
