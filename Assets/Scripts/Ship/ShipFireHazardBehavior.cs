@@ -7,6 +7,8 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
     public ShipProgressBar DoomBar;
     public ShipProgressBar ProgressBar;
 
+    public HazardLocation Location { get { return location; } }
+    public float RemainingTime { get { return timeBeforeRuin; } }
     public bool RetainControlOnSwap { get { return true; } }
 
     private ShipEventCoordinatorBehavior coordinator = null;
@@ -80,7 +82,7 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat.HazardHasCompleted();    
         }
 
-        coordinator.HazardWasResolved(location);
+        coordinator.HazardWasResolved(this);
         Destroy(gameObject);
     }
 }

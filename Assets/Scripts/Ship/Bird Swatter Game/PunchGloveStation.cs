@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PunchGloveStation : MonoBehaviour, IInteractStation
+public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
 {
     public BirdSwattingMinigameBehavior Minigame;
     public GameObject CountdownHolderForEnableDisable;
     public ShipProgressBar CountdownBar;
 
+    public HazardLocation Location { get { return HazardLocation.Bird; } }
+    public float RemainingTime { get { return timeUntilBirdDestruction; } }
     public bool RetainControlOnSwap { get { return false; } }
 
     private ShipEventCoordinatorBehavior reportBackToCoordinator;
@@ -39,7 +41,7 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation
     {
         IsBirdAttacking = false;
         CountdownHolderForEnableDisable.SetActive(false);
-        reportBackToCoordinator.HazardWasResolved(HazardLocation.Bird);
+        reportBackToCoordinator.HazardWasResolved(this);
     }
 
     public bool CanInteract() 
@@ -53,5 +55,15 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation
         {
             Minigame.ManTheHarpoons(this, rat);
         }
+    }
+
+    // Unused IShipHazard function because duct tape
+    public void SetCoordinatorAndLocation(ShipEventCoordinatorBehavior coordinator, HazardLocation location)
+    {
+    }
+
+    // Unused IShipHazard function because duct tape
+    public void AssignRat(RatControllerBehavior assignedRat)
+    {
     }
 }

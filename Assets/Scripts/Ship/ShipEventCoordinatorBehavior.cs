@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public interface IShipHazard
 {
+    float RemainingTime { get; }
+    HazardLocation Location { get; }
     void SetCoordinatorAndLocation(ShipEventCoordinatorBehavior coordinator, HazardLocation location);
     void AssignRat(RatControllerBehavior rat);
 }
@@ -23,6 +25,8 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     public Transform EngineRoomHazardTransform;
     public Transform BalloonDeckHazardTransform;
 
+    public List<HazardAlertUIBehavior> alertUIBehaviors;
+
     // Would be cool to show "completion time"
     // time2speedrun
     private float sceneStartTime;
@@ -30,6 +34,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     private float timeToNextHazard = float.MaxValue;
 
     private List<HazardLocation> availableHazardLocations;
+    private List<IShipHazard> activeHazards;
 
     private float defaultMinHazardTime = 20;
     private float defaultMaxHazardTime = 30;
@@ -38,6 +43,8 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     void Start()
     {
         sceneStartTime = Time.time;
+
+        activeHazards = new List<IShipHazard>();
 
         availableHazardLocations = new List<HazardLocation>
         {
@@ -59,6 +66,21 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         if (timeToNextHazard <= 0)
         {
             SpawnHazard();
+        }
+
+        for (int i = 0; i < alertUIBehaviors.Count; i++)
+        {
+            var alertBehavior = alertUIBehaviors[i];
+
+            if (i < activeHazards.Count)
+            {
+                var hazard = activeHazards[i];
+                alertBehavior.UpdateText(hazard.Location, (int)hazard.RemainingTime);
+            } 
+            else
+            {
+                alertBehavior.Hide();
+            }
         }
     }
 
@@ -114,17 +136,20 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         var hazardObject = Instantiate(FireHazardTemplate, firePosition, Quaternion.identity);
         var hazardScript = hazardObject.GetComponent<IShipHazard>();
         hazardScript.SetCoordinatorAndLocation(this, location);
+        activeHazards.Add(hazardScript);
     }
 
     public void StartBirdMinigame()
     {
         PunchGloveStation.TriggerBirdAttack(this, 50);
+        activeHazards.Add(PunchGloveStation);
     }
 
-    public void HazardWasResolved(HazardLocation hazard)
+    public void HazardWasResolved(IShipHazard hazard)
     {
         // return hazard location to available list
-        availableHazardLocations.Add(hazard);
+        availableHazardLocations.Add(hazard.Location);
+        activeHazards.Remove(hazard);
     }
 
     public void HazardDestroyedTheShip()
@@ -134,5 +159,4 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         SceneManager.LoadScene("GameOver");
         // TODO: Transition to Game Over Screen
     }
-
 }

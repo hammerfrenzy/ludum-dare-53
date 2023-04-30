@@ -56,6 +56,10 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
         Bird.transform.position = birdStartPosition;
         Bird.transform.rotation = Quaternion.identity;
+        var birdBody = Bird.GetComponent<Rigidbody>();
+        birdBody.useGravity = false;
+        birdBody.isKinematic = true;
+
         Crosshair.transform.position = crosshairStartPosition;
 
         // Random speeds so you can't memorize the pattern
