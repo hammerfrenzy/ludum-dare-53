@@ -154,7 +154,6 @@ public class RatControllerBehavior : MonoBehaviour
     public void HazardHasCompleted()
     {
         isInteracting = false;
-        currentInteractStation.SetInteracting(isInteracting, this);
         currentInteractStation = null;
     }
 

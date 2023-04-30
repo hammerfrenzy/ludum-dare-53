@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStation
 {
-    public ShipFireHazardBar DoomBar;
-    public ShipFireHazardBar ProgressBar;
+    public ShipProgressBar DoomBar;
+    public ShipProgressBar ProgressBar;
 
     public bool RetainControlOnSwap { get { return true; } }
 

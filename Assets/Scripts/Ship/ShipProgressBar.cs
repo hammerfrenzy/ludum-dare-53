@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipFireHazardBar : MonoBehaviour
+public class ShipProgressBar : MonoBehaviour
 {
     public bool Invert = false;
 
