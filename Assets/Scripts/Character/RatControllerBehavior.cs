@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class RatControllerBehavior : MonoBehaviour
@@ -10,8 +11,12 @@ public class RatControllerBehavior : MonoBehaviour
 
     public float Speed = 5.0f;
     public GameObject selectedTriangle;
+    public Sprite InteractSprite;
+
     private CharacterController characterController;
     private SpriteRenderer spriteRenderer;
+    private SpriteRenderer selectionRenderer;
+    private Sprite selectionTriangle;
 
     private bool isOnLadder = false;
     private bool isBeingControlled = false;
@@ -32,6 +37,8 @@ public class RatControllerBehavior : MonoBehaviour
     private void Awake()
     {
         voiceManager = FindObjectOfType<VoicelineManager>();
+        selectionRenderer = selectedTriangle.GetComponent<SpriteRenderer>();
+        selectionTriangle = selectionRenderer.sprite;
     }
 
     void Start()
@@ -146,7 +153,7 @@ public class RatControllerBehavior : MonoBehaviour
         }       
 
         isBeingControlled = giveControl;
-        selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
+        selectionRenderer.enabled = giveControl;
 
         if (giveControl && voiceManager != null && shouldQuip) 
         {
@@ -167,13 +174,25 @@ public class RatControllerBehavior : MonoBehaviour
         {
             isOnLadder = true;
         }
+
+        if (other.gameObject.tag == "Station")
+        {
+            selectionRenderer.sprite = InteractSprite;
+            currentInteractStation = other.GetComponent<IInteractStation>();
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Station")
         {
-            currentInteractStation = other.GetComponent<IInteractStation>();
+            // Handle a case where a fire spawns under you.
+            // It shouldn't immediately set the interact station.
+            if (selectionRenderer.sprite != InteractSprite)
+            {
+                selectionRenderer.sprite = InteractSprite;
+                currentInteractStation = other.GetComponent<IInteractStation>();
+            }
         }
     }
 
@@ -187,6 +206,7 @@ public class RatControllerBehavior : MonoBehaviour
         if (other.gameObject.tag == "Station")
         {
             currentInteractStation = null;
+            selectionRenderer.sprite = selectionTriangle;
         }
     }
 }
