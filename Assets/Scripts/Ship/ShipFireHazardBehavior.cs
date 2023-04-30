@@ -44,6 +44,8 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
         }
     }
 
+    public bool CanInteract() { return true; }
+
     public void SetInteracting(bool isInteracting, RatControllerBehavior rat)
     {
         if (isInteracting)

@@ -39,6 +39,8 @@ public class HelmStation : MonoBehaviour, IInteractStation
         steeringUi.transform.eulerAngles = new Vector3(0,0,-steeringInput);
     }
 
+    public bool CanInteract() { return true; }
+
     public void SetInteracting(bool interacting, RatControllerBehavior rat)
     {
         isInteracting = interacting;
