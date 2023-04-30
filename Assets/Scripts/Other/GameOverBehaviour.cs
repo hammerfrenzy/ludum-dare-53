@@ -19,4 +19,14 @@ public class GameOverBehaviour : MonoBehaviour
     {
         
     }
+
+    public void WinScreen()
+    {
+
+    }
+
+    public void LoseScreen()
+    {
+
+    }
 }

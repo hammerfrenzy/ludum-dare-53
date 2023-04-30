@@ -9,6 +9,7 @@ TagManager:
   - Station
   - InnocentTown
   - Bird
+  - MapBorder
   layers:
   - Default
   - TransparentFX

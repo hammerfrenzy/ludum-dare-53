@@ -11,7 +11,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
     public GameObject steeringUi;
     public float steeringInput;
 
-    public float steeringSensitivity = 20f;
+    public float steeringSensitivity = 30f;
 
     private bool isInteracting;
 
