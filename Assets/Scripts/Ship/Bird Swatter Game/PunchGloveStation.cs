@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
 {
+    public RatSwapperBehavior RatSwapper;
     public BirdSwattingMinigameBehavior Minigame;
     public GameObject CountdownHolderForEnableDisable;
     public ShipProgressBar CountdownBar;
@@ -54,6 +55,7 @@ public class PunchGloveStation : MonoBehaviour, IInteractStation, IShipHazard
         if (isInteracting && isBirdAttacking)
         {
             Minigame.ManTheHarpoons(this, rat);
+            RatSwapper.SetIsInMinigame(true);
         }
     }
 

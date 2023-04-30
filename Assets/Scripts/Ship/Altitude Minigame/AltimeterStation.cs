@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AltimeterStation : MonoBehaviour, IShipHazard, IInteractStation
 {
+    public RatSwapperBehavior RatSwapper;
     public PumpItUpMinigameBehvaior Minigame;
     public GameObject CountdownHolderForEnableDisable;
     public ShipProgressBar CountdownBar;
@@ -54,6 +55,7 @@ public class AltimeterStation : MonoBehaviour, IShipHazard, IInteractStation
         if (isDeflating && isInteracting)
         {
             Minigame.StartPumpingItUp(this, rat);
+            RatSwapper.SetIsInMinigame(true);
         }
     }
 
