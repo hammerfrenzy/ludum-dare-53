@@ -7,7 +7,6 @@ public class ShipBehavior : MonoBehaviour
 {
     public float maxSpeed = 0.05f;
 
-    private ShipMovement bearing;
     private int currentHullIntegrity = 100;
     public int maxHullIntegrity = 100; 
 
@@ -39,7 +38,7 @@ public class ShipBehavior : MonoBehaviour
         shipMovement.speed = (throttleStation.speedPercentage/100) * maxSpeed;
 
 
-        dropStation.SetInteracting(shipMovement.isOverUninfectedInnocentTown());
+        dropStation.SetDeliveryAvailable(shipMovement.isOverUninfectedInnocentTown());
         
     }
 
