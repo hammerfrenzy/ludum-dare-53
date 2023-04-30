@@ -157,6 +157,5 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         var youFlewForThisLong = Time.time - sceneStartTime;
         GameValues.timeInAir = youFlewForThisLong;
         SceneManager.LoadScene("GameOver");
-        // TODO: Transition to Game Over Screen
     }
 }
