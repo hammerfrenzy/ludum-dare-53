@@ -66,13 +66,17 @@ public class RatControllerBehavior : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && currentInteractStation != null)
             {
-                isInteracting = !isInteracting;
-                animator.SetBool("isInteracting", isInteracting);
-                currentInteractStation.SetInteracting(isInteracting, this);
-
-                if (isInteracting)
+                // Some stations have conditions before they can be used.
+                if (currentInteractStation.CanInteract())
                 {
-                    voiceManager.PlayAknowledgement(isRico, isHorace, isNixie);
+                    isInteracting = !isInteracting;
+                    animator.SetBool("isInteracting", isInteracting);
+                    currentInteractStation.SetInteracting(isInteracting, this);
+
+                    if (isInteracting)
+                    {
+                        voiceManager.PlayAknowledgement(isRico, isHorace, isNixie);
+                    }
                 }
             }
 

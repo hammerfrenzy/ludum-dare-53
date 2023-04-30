@@ -31,6 +31,8 @@ public class ThrottleStation : MonoBehaviour, IInteractStation
         throttleLeverUI.transform.eulerAngles = new Vector3(0, 0, 260*(speedPercentage/100));
     }
 
+    public bool CanInteract() { return true; }
+
     // Update is called once per frame
     public void SetInteracting(bool interacting, RatControllerBehavior rat)
     {

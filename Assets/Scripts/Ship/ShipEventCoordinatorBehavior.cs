@@ -16,6 +16,7 @@ public enum HazardLocation
 public class ShipEventCoordinatorBehavior : MonoBehaviour
 {
     public GameObject FireHazardTemplate;
+    public PunchGloveStation PunchGloveStation;
 
     public Transform MainDeckHazardTransform;
     public Transform EngineRoomHazardTransform;
@@ -116,7 +117,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void StartBirdMinigame()
     {
-
+        PunchGloveStation.TriggerBirdAttack(this, 50);
     }
 
     public void HazardWasResolved(HazardLocation hazard)

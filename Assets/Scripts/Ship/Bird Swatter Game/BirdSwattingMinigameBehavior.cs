@@ -20,6 +20,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     private bool minigameIsActive = false;
     private float fireCooldown = 0f;
 
+    private PunchGloveStation station;
     private RatControllerBehavior ratOnHarpoon;
 
     // Start is called before the first frame update
@@ -43,11 +44,13 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     }
 
     // Start the mini-game
-    public void ManTheHarpoons(RatControllerBehavior ratOnHarpoon)
+    public void ManTheHarpoons(PunchGloveStation station, RatControllerBehavior ratOnHarpoon)
     {
         minigameIsActive = true;
-        this.ratOnHarpoon = ratOnHarpoon;
         Camera.main.transform.position = GameCameraTarget.transform.position;
+        
+        this.ratOnHarpoon = ratOnHarpoon;
+        this.station = station;
 
         fireCooldown = 0;
 
@@ -90,6 +93,8 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
     public IEnumerator EndAfterDelay(float delay)
     {
+        station.BirdThwarted();
+        
         yield return new WaitForSeconds(delay);
 
         ratOnHarpoon.ChangeControl(true);
