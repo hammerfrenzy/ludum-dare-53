@@ -8087,7 +8087,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Background Wind
     clip: {fileID: 8300000, guid: a8241b306ae3147419fefe8982c71ba9, type: 3}
-    volume: 0.7
+    volume: 0.581
     pitch: 0.98
     loop: 1
     source: {fileID: 0}
@@ -8120,6 +8120,12 @@ MonoBehaviour:
     volume: 0.357
     pitch: 0.98
     loop: 0
+    source: {fileID: 0}
+  - name: Ship Creaking
+    clip: {fileID: 8300000, guid: 2dfe855aed95cd64d9a18819fad7fd09, type: 3}
+    volume: 0.258
+    pitch: 0.5
+    loop: 1
     source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0

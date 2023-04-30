@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
     {
         Play("Background Music");
         Play("Background Wind");
+        Play("Ship Creaking");
     }
 
     void FixedUpdate()
