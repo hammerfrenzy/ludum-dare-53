@@ -98,10 +98,10 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         var index = Random.Range(0, availableHazardLocations.Count);
         var location = availableHazardLocations[index];
         availableHazardLocations.RemoveAt(index);
-        
+
         // Test specific hazards by uncommenting below
-        // location = HazardLocation.Altimeter;
-        
+        //location = HazardLocation.Altimeter;
+
         switch (location)
         {
             case HazardLocation.Altimeter:

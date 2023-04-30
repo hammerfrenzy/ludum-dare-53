@@ -13,7 +13,7 @@ public class CameraTargetBehavior : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(EnableAfterDelay(1));
+        StartCoroutine(EnableAfterDelay(0.1f));
     }
 
     private IEnumerator EnableAfterDelay(float delay)

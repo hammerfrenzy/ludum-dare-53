@@ -48,4 +48,10 @@ public class ShipProgressBar : MonoBehaviour
     {
         this.shouldProgress = shouldProgress;
     }
+
+    public void ManuallyProgress(float amount)
+    {
+        totalTime += amount;
+        UpdateScale();
+    }
 }

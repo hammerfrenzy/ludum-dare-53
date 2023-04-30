@@ -7,6 +7,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 {
     public CameraTargetBehavior MinigameCameraTarget;
     public CameraTargetBehavior ReturnCameraTarget;
+    public ShipProgressBar ProgressBar;
 
     public Sprite PumpUp;
     public Sprite PumpDown;
@@ -16,12 +17,14 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
     private AltimeterStation station;
     private bool isPlayingMinigame = false;
     private bool isPumpUp = false;
+    private int requiredPumps = 10;
     private int numberOfPumps = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // we'll manually increment this one
+        ProgressBar.SetMakeProgress(false);
     }
 
     // Update is called once per frame
@@ -31,24 +34,29 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 
         if (isPumpUp && Input.GetKeyDown(KeyCode.S))
         {
-            Pump();
+            TogglePump();
 
         }
         else if (!isPumpUp && Input.GetKeyDown(KeyCode.W))
         {
-            Pump();
+            TogglePump();
         }
     }
 
-    private void Pump()
+    private void TogglePump()
     {
-        numberOfPumps++;
         isPumpUp = !isPumpUp;
+        
+        if (!isPumpUp)
+        {
+            numberOfPumps++;
+            ProgressBar.ManuallyProgress(1);
+        }
 
         var newSprite = isPumpUp ? PumpUp : PumpDown;
         PumpRenderer.sprite = newSprite;
 
-        if (numberOfPumps > 10)
+        if (numberOfPumps >= requiredPumps)
         {
             WeArePumpedToTheMax();
         }
@@ -62,6 +70,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         numberOfPumps = 0;
         isPumpUp = false;
         PumpRenderer.sprite = PumpDown;
+        ProgressBar.SetTimeToFill(requiredPumps);
 
         Camera.main.transform.position = MinigameCameraTarget.transform.position;
     }
