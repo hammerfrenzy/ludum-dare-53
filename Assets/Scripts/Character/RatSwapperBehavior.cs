@@ -74,7 +74,7 @@ public class RatSwapperBehavior : MonoBehaviour
                 closestTarget = cameraTarget;
             }
         }
-
+        Camera.main.orthographicSize = 5.0f;
         Camera.main.transform.position = closestTarget.transform.position;
     }
 }
