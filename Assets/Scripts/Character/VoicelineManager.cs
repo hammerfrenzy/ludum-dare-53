@@ -34,7 +34,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(ricoQuips[currentRicoQuip]);
             
-            if (currentRicoQuip < ricoQuips.Length)
+            if (currentRicoQuip < ricoQuips.Length - 1)
             {
                 currentRicoQuip += 1;
             }
@@ -48,7 +48,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(horaceQuips[currentHoraceQuip]);
 
-            if (currentHoraceQuip < horaceQuips.Length)
+            if (currentHoraceQuip < horaceQuips.Length - 1)
             {
                 currentHoraceQuip += 1;
             }
@@ -62,7 +62,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(nixieQuips[currentNixieQuip]);
             
-            if (currentNixieQuip < nixieQuips.Length)
+            if (currentNixieQuip < nixieQuips.Length - 1)
             {
                 currentNixieQuip += 1;
             }
@@ -79,7 +79,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(ricoAcknowledgements[currentRicoAcknowledgement]);
             
-            if (currentRicoAcknowledgement < ricoAcknowledgements.Length)
+            if (currentRicoAcknowledgement < ricoAcknowledgements.Length - 1)
             {
                 currentRicoAcknowledgement += 1;
             }
@@ -93,7 +93,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(horaceAcknowledgements[currentHoraceAcknowledgement]);
            
-            if (currentHoraceAcknowledgement < horaceAcknowledgements.Length)
+            if (currentHoraceAcknowledgement < horaceAcknowledgements.Length - 1)
             {
                 currentHoraceAcknowledgement += 1;
             }
@@ -107,7 +107,7 @@ public class VoicelineManager : MonoBehaviour
         {
             audioManager.Play(nixieAcknowledgements[currentNixieAcknowledgement]);
 
-            if (currentNixieAcknowledgement < nixieAcknowledgements.Length)
+            if (currentNixieAcknowledgement < nixieAcknowledgements.Length - 1)
             {
                 currentNixieAcknowledgement += 1;
             }
