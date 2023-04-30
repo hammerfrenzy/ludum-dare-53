@@ -32,7 +32,7 @@ public class HazardAlertUIBehavior : MonoBehaviour
             case HazardLocation.Bird:
                 return "Bird Attack";
             case HazardLocation.BalloonRoom:
-                return "Top Deck";
+                return "Balloon Deck";
             case HazardLocation.EngineRoom:
                 return "Engine Room";
             case HazardLocation.MainDeck:
