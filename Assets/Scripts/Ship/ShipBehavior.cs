@@ -16,12 +16,10 @@ public class ShipBehavior : MonoBehaviour
     private ShipMovement shipMovement;
 
     HelmStation helmStation;
-
     ThrottleStation throttleStation;
-
     DropStation dropStation;
-
     InnocentTown[] innocentTowns;
+
     // Start is called before the first frame update
     void Start()
     {
