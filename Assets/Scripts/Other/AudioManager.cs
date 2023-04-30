@@ -56,7 +56,7 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            s.source.volume = 0.5f;
+            s.source.volume = s.source.volume;
         }
     }
     public void Play(string name)
