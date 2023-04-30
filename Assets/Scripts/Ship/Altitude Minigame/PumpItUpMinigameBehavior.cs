@@ -71,6 +71,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         isPumpUp = false;
         PumpRenderer.sprite = PumpDown;
         ProgressBar.SetTimeToFill(requiredPumps);
+        ProgressBar.SetMakeProgress(false);
 
         Camera.main.transform.position = MinigameCameraTarget.transform.position;
     }
