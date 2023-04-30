@@ -11,7 +11,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
     public GameObject steeringUi;
     public float steeringInput;
 
-    public float steeringSensitivity = 0.05f;
+    public float steeringSensitivity = 20f;
 
     private bool isInteracting;
 
@@ -28,7 +28,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
         if(!isInteracting) { return; }
 
         var dx = Input.GetAxis("Horizontal");
-        steeringInput += dx * steeringSensitivity;
+        steeringInput += dx * steeringSensitivity * Time.deltaTime;
         steeringInput = Mathf.Clamp(steeringInput, -90f, 90f);
     }
 
