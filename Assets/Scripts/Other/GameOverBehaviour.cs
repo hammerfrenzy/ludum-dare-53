@@ -20,12 +20,12 @@ public class GameOverBehaviour : MonoBehaviour
         
     }
 
-    public void WinText()
+    public void WinScreen()
     {
 
     }
 
-    public void LoseText()
+    public void LoseScreen()
     {
 
     }
