@@ -2954,6 +2954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bird: {fileID: 1071295024}
+  BirdSprite: {fileID: 21300000, guid: b8f08e8e36bc2a64887d02f5f01cd89d, type: 3}
+  SadBirdSprite: {fileID: 21300000, guid: bcb786a99be83344a8d73e01058aabbe, type: 3}
   Crosshair: {fileID: 1618607788}
   GloveTemplate: {fileID: 4807675402777296385, guid: 1881d01db8495f44b89e1195c06de9f8, type: 3}
   GameCameraTarget: {fileID: 913144631}
@@ -6990,6 +6992,24 @@ MonoBehaviour:
     volume: 0.7
     pitch: 0.98
     loop: 1
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: a220ed3b1a89f3e46a4ebab56348e4a9, type: 3}
+    volume: 0.65
+    pitch: 0.86
+    loop: 0
+    source: {fileID: 0}
+  - name: Bird Call
+    clip: {fileID: 8300000, guid: 7cff9068b472a4b40ab8a59a848accae, type: 3}
+    volume: 0.553
+    pitch: 1.22
+    loop: 0
+    source: {fileID: 0}
+  - name: Sad Bird Call
+    clip: {fileID: 8300000, guid: 33aba1d7ea043284a80b7cf648a44a6e, type: 3}
+    volume: 0.429
+    pitch: 1.2
+    loop: 0
     source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0

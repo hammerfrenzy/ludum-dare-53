@@ -116,6 +116,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void StartAFire(HazardLocation location)
     {
+        FindObjectOfType<AudioManager>().Play("Explosion");
         Vector3 firePosition;
         switch (location)
         {
@@ -141,6 +142,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void StartBirdMinigame()
     {
+        FindObjectOfType<AudioManager>().Play("Bird Call");
         PunchGloveStation.TriggerBirdAttack(this, 50);
         activeHazards.Add(PunchGloveStation);
     }

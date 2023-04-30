@@ -8,6 +8,8 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     AudioManager audioManager;
 
     public GameObject Bird;
+    public Sprite BirdSprite;
+    public Sprite SadBirdSprite;
     public GameObject Crosshair;
     public GameObject GloveTemplate;
     public CameraTargetBehavior GameCameraTarget;
@@ -24,6 +26,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
     private PunchGloveStation station;
     private RatControllerBehavior ratOnHarpoon;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         birdStartPosition = Bird.transform.position;
         crosshairStartPosition = Crosshair.transform.position;
+        spriteRenderer = Bird.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -106,6 +110,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
         ratOnHarpoon.ChangeControl(true);
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
+        spriteRenderer.sprite = SadBirdSprite;
     }
 
     public void FireHarpoon()

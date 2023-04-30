@@ -7,11 +7,13 @@ public class GloveProjectileBehavior : MonoBehaviour
 {
     private BirdSwattingMinigameBehavior parent;
     private float speed = 5f;
+    private SpriteRenderer birdSpriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         Destroy(gameObject, 5);
+        birdSpriteRenderer = parent.Bird.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class GloveProjectileBehavior : MonoBehaviour
         if (other.gameObject.tag != "Bird") { return; }
 
         // make it go silly
+        FindObjectOfType<AudioManager>().Play("Sad Bird Call");
+        birdSpriteRenderer.sprite = parent.SadBirdSprite;
         var rigidbody = GetComponent<Rigidbody>();
         var torque = Random.Range(-4, 4);
         rigidbody.AddTorque(new Vector3(0, 0, torque), ForceMode.Impulse);
