@@ -125,7 +125,7 @@ public class RatControllerBehavior : MonoBehaviour
         characterController.Move(movement * Speed * Time.deltaTime);
     }
 
-    public void ChangeControl(bool giveControl)
+    public void ChangeControl(bool giveControl, bool shouldQuip = true)
     {
         if (currentInteractStation != null)
         {
@@ -148,7 +148,7 @@ public class RatControllerBehavior : MonoBehaviour
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
 
-        if (giveControl && voiceManager != null) 
+        if (giveControl && voiceManager != null && shouldQuip) 
         {
             voiceManager.PlayQuip(isRico, isHorace, isNixie);
         }

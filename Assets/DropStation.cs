@@ -12,6 +12,7 @@ public class DropStation : MonoBehaviour, IInteractStation
     SpriteRenderer interactUi;
     SpriteRenderer leverUi;
     private RatControllerBehavior interactingRat;
+    VoicelineManager voiceManager;
 
     private float leverProgress = 0f;
 
@@ -29,6 +30,7 @@ public class DropStation : MonoBehaviour, IInteractStation
         interactUi = GameObject.Find("ExclamationMarkUI").GetComponent<SpriteRenderer>();
         leverUi = GameObject.Find("DeliveryLeverUI").GetComponent<SpriteRenderer>();
         cargoSpawnerBehavior = GameObject.FindObjectOfType<CargoSpawnerBehavior>();
+        voiceManager = FindObjectOfType<VoicelineManager>();
     }
 
     // Update is called once per frame
@@ -62,7 +64,8 @@ public class DropStation : MonoBehaviour, IInteractStation
                 {
                     cargoSpawnerBehavior.MakeDelivery();
                     ResetProgress();
-                    interactingRat.ChangeControl(true);
+                    voiceManager.PlayDelivery(interactingRat.isRico, interactingRat.isHorace, interactingRat.isNixie);
+                    interactingRat.ChangeControl(true, false);
                     interactingRat = null;
                     if (innocentTown != null) innocentTown.InfectTown();
                 }
