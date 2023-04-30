@@ -3458,8 +3458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bird: {fileID: 1071295024}
-  BirdSprite: {fileID: 0}
-  SadBirdSprite: {fileID: 0}
+  BirdSprite: {fileID: 21300000, guid: b8f08e8e36bc2a64887d02f5f01cd89d, type: 3}
+  SadBirdSprite: {fileID: 21300000, guid: bcb786a99be83344a8d73e01058aabbe, type: 3}
   Crosshair: {fileID: 1618607788}
   GloveTemplate: {fileID: 4807675402777296385, guid: 1881d01db8495f44b89e1195c06de9f8, type: 3}
   GameCameraTarget: {fileID: 913144631}
