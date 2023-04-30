@@ -12,6 +12,8 @@ public class ShipMovement : MonoBehaviour
 
     public InnocentTown currentTown = null;
 
+    public bool isAtBorder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,11 @@ public class ShipMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isAtBorder)
+        {
+            desiredHeading += 90;
+            isAtBorder = false;
+        }
         var xComponent = Mathf.Sin(Mathf.Deg2Rad * desiredHeading);
         var yComponent = Mathf.Cos(Mathf.Deg2Rad * desiredHeading);
         var desiredVector = new Vector3(xComponent, yComponent);
@@ -55,6 +62,11 @@ public class ShipMovement : MonoBehaviour
         {
             currentTown = other.GetComponent<InnocentTown>();
         }
+
+        if(other.gameObject.tag == "MapBorder")
+        {
+            isAtBorder = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -62,6 +74,11 @@ public class ShipMovement : MonoBehaviour
         if (other.gameObject.tag == "InnocentTown")
         {
             currentTown = null;
+        }
+
+        if (other.gameObject.tag == "MapBorder")
+        {
+            isAtBorder = false;
         }
     }
 
