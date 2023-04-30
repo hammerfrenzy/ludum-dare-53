@@ -1127,7 +1127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &337047230
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2881,7 +2881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &879628377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5599,9 +5599,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -102121769
-  m_SortingLayer: 3
-  m_SortingOrder: 1
+  m_SortingLayerID: 914879553
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ca1bf2962f343e443876cc7df5293013, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5855,6 +5855,12 @@ MonoBehaviour:
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
+  - name: Bird Station Thump
+    clip: {fileID: 8300000, guid: da42119fee001d443b367a5509ec6cf0, type: 3}
+    volume: 0.751
+    pitch: 1.3
+    loop: 0
+    source: {fileID: 0}
   - name: Rico Delivery
     clip: {fileID: 8300000, guid: 50e155e0e25636340bb0a693d3ed19fd, type: 3}
     volume: 0.502
@@ -6016,6 +6022,12 @@ MonoBehaviour:
     volume: 0.424
     pitch: 1.21
     loop: 0
+    source: {fileID: 0}
+  - name: Background Wind
+    clip: {fileID: 8300000, guid: a8241b306ae3147419fefe8982c71ba9, type: 3}
+    volume: 0.823
+    pitch: 0.98
+    loop: 1
     source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0

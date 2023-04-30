@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         Play("Background Music");
+        Play("Background Wind");
     }
 
     void FixedUpdate()

@@ -5,6 +5,8 @@ using DG.Tweening;
 
 public class BirdSwattingMinigameBehavior : MonoBehaviour
 {
+    AudioManager audioManager;
+
     public GameObject Bird;
     public GameObject Crosshair;
     public GameObject GloveTemplate;
@@ -26,6 +28,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         birdStartPosition = Bird.transform.position;
         crosshairStartPosition = Crosshair.transform.position;
     }
@@ -110,5 +113,6 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
         fireCooldown = 2f;
         var gloveObject = Instantiate(GloveTemplate, Crosshair.transform.position, Quaternion.identity);
         gloveObject.GetComponent<GloveProjectileBehavior>().SetMinigameParent(this);
+        audioManager.Play("Bird Station Thump");
     }
 }
