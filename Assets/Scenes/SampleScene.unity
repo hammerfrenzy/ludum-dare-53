@@ -3157,7 +3157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636409890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.21, y: -10.51, z: 0}
+  m_LocalPosition: {x: 28.03, y: -9.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5104,7 +5104,7 @@ GameObject:
   - component: {fileID: 1218166350}
   - component: {fileID: 1218166349}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: UIEventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7052,7 +7052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760502766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.51, y: 0.1, z: 0}
+  m_LocalPosition: {x: 3.52, y: 0.08, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.45000002}
   m_ConstrainProportionsScale: 1
   m_Children:
