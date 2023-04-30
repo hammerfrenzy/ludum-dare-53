@@ -130,7 +130,6 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     public void HazardDestroyedTheShip()
     {
         var youFlewForThisLong = Time.time - sceneStartTime;
-        Debug.LogError($"You let the ship break after {youFlewForThisLong} seconds.");
         GameValues.timeInAir = youFlewForThisLong;
         SceneManager.LoadScene("GameOver");
         // TODO: Transition to Game Over Screen
