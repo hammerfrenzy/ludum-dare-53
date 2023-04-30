@@ -47,7 +47,7 @@ public class ShipBehavior : MonoBehaviour
             shipEventCoordinatorBehavior.GameOver(isWin: true);
         }
 
-        shipMovement.desiredHeading += helmStation.steeringInput * 0.0001f;
+        shipMovement.desiredHeading += helmStation.steeringInput * 0.18f * Time.deltaTime;
         shipMovement.speed = (throttleStation.speedPercentage/100) * maxSpeed;
 
 
