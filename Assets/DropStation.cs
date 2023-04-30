@@ -21,12 +21,14 @@ public class DropStation : MonoBehaviour, IInteractStation
     public bool RetainControlOnSwap { get { return false; } }
 
     private InnocentTown innocentTown = null;
+    CargoSpawnerBehavior cargoSpawnerBehavior;
 
     // Start is called before the first frame update
     void Start()
     {
         interactUi = GameObject.Find("ExclamationMarkUI").GetComponent<SpriteRenderer>();
         leverUi = GameObject.Find("DeliveryLeverUI").GetComponent<SpriteRenderer>();
+        cargoSpawnerBehavior = GameObject.FindObjectOfType<CargoSpawnerBehavior>();
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class DropStation : MonoBehaviour, IInteractStation
                 leverUi.transform.eulerAngles = new Vector3(0, 0, -110 * (leverProgress / 100) + 10);
                 if(leverProgress == 100)
                 {
+                    cargoSpawnerBehavior.MakeDelivery();
                     ResetProgress();
                     interactingRat.ChangeControl(true);
                     interactingRat = null;
