@@ -150,6 +150,14 @@ public class RatControllerBehavior : MonoBehaviour
         }
     }
 
+    // If a hazard completes, stop interacting without requiring input.
+    public void HazardHasCompleted()
+    {
+        isInteracting = false;
+        currentInteractStation.SetInteracting(isInteracting, this);
+        currentInteractStation = null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ladder")

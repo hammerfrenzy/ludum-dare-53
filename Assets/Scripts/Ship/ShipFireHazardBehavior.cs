@@ -73,6 +73,11 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
 
     public void Resolve()
     {
+        if (assignedRat != null)
+        {
+            assignedRat.HazardHasCompleted();    
+        }
+
         coordinator.HazardWasResolved(location);
         Destroy(gameObject);
     }
