@@ -8,6 +8,7 @@ public class RatControllerBehavior : MonoBehaviour
 
     Animator animator;
     VoicelineManager voiceManager;
+    AudioManager audioManager;
 
     public float Speed = 5.0f;
     public GameObject selectedTriangle;
@@ -33,6 +34,8 @@ public class RatControllerBehavior : MonoBehaviour
 
     private IInteractStation currentInteractStation = null;
 
+    private bool wasInteractingBeforeSwap = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class RatControllerBehavior : MonoBehaviour
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -102,7 +106,7 @@ public class RatControllerBehavior : MonoBehaviour
             {
                 isWalking = false;
                 animator.SetBool("isWalking", false);
-                FindObjectOfType<AudioManager>().Play("Walking (Metal Floor)");
+                audioManager.Play("Walking (Metal Floor)");
             }
             else
             {
@@ -134,12 +138,13 @@ public class RatControllerBehavior : MonoBehaviour
 
     public void ChangeControl(bool giveControl, bool shouldQuip = true)
     {
+
         if (currentInteractStation != null)
         {
             // Don't stop important things like putting 
             // out a fire just because we changed rats.
             var stationKeepsWorking = currentInteractStation.RetainControlOnSwap;
-            if (stationKeepsWorking)
+            if (wasInteractingBeforeSwap && stationKeepsWorking)
             {
                 // Was previously set to false during update while not in control.
                 // Shouldn't need to call SetInteracting again though.
@@ -153,6 +158,7 @@ public class RatControllerBehavior : MonoBehaviour
         }       
 
         isBeingControlled = giveControl;
+        wasInteractingBeforeSwap = isInteracting;
         selectionRenderer.enabled = giveControl;
 
         if (giveControl && voiceManager != null && shouldQuip) 
@@ -188,7 +194,7 @@ public class RatControllerBehavior : MonoBehaviour
         {
             // Handle a case where a fire spawns under you.
             // It shouldn't immediately set the interact station.
-            if (selectionRenderer.sprite != InteractSprite)
+            if (currentInteractStation == null)
             {
                 selectionRenderer.sprite = InteractSprite;
                 currentInteractStation = other.GetComponent<IInteractStation>();
