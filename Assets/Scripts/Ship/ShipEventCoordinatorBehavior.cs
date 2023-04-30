@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public interface IShipHazard
 {
@@ -48,7 +49,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         };
 
         // How frequently should hazards occur?
-        timeToNextHazard = Random.Range(defaultMinHazardTime, defaultMaxHazardTime);
+        timeToNextHazard = Random.Range(3, 5);
     }
 
     // Update is called once per frame
@@ -63,6 +64,10 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     void SpawnHazard()
     {
+        var youFlewForThisLong = Time.time - sceneStartTime;
+        Debug.LogError($"You let the ship break after {youFlewForThisLong} seconds.");
+        GameValues.timeInAir = youFlewForThisLong;
+        SceneManager.LoadScene("GameOver");
         if (availableHazardLocations.Count == 0)
         {
             // They didn't time out but you didn't fix them?
@@ -130,6 +135,8 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
     {
         var youFlewForThisLong = Time.time - sceneStartTime;
         Debug.LogError($"You let the ship break after {youFlewForThisLong} seconds.");
+        GameValues.timeInAir = youFlewForThisLong;
+        SceneManager.LoadScene("GameOver");
         // TODO: Transition to Game Over Screen
     }
 
