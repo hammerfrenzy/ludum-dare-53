@@ -150,7 +150,7 @@ public class RatControllerBehavior : MonoBehaviour
                 // Shouldn't need to call SetInteracting again though.
                 isInteracting = true;
             }
-            else
+            else if (giveControl)
             {
                 isInteracting = false;
                 currentInteractStation.SetInteracting(isInteracting, this);

@@ -14,7 +14,7 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
     private ShipEventCoordinatorBehavior coordinator = null;
     private RatControllerBehavior assignedRat = null;
     private HazardLocation location;
-    private float timeToDouse = 10;
+    private float timeToDouse = 15;
     private float timeBeforeRuin = 25;
 
     void Start()
@@ -37,13 +37,15 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
                 return;
             }
         }
-
-        timeBeforeRuin -= Time.deltaTime;
-
-        if (timeBeforeRuin <= 0)
+        else
         {
-            coordinator.HazardDestroyedTheShip();
-        }
+            timeBeforeRuin -= Time.deltaTime;
+
+            if (timeBeforeRuin <= 0)
+            {
+                coordinator.HazardDestroyedTheShip();
+            }
+        }       
     }
 
     public bool CanInteract() { return true; }
@@ -55,12 +57,14 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             Debug.Log($"{rat.name} started working on the fire.");
             assignedRat = rat;
             ProgressBar.SetMakeProgress(true);
+            DoomBar.SetMakeProgress(false);
         }
         else
         {
             Debug.Log($"{rat.name} stopped working on the fire.");
             assignedRat = null;
             ProgressBar.SetMakeProgress(false);
+            DoomBar.SetMakeProgress(true);
         }
     }
 
