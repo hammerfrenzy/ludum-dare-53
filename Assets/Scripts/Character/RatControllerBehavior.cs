@@ -199,10 +199,10 @@ public class RatControllerBehavior : MonoBehaviour
             if (currentInteractStation == null)
             {
                 currentInteractStation = other.GetComponent<IInteractStation>();
-
-                var sprite = currentInteractStation.CanInteract() ? InteractSprite : selectionTriangle;
-                selectionRenderer.sprite = sprite;
             }
+
+            var sprite = currentInteractStation.CanInteract() ? InteractSprite : selectionTriangle;
+            selectionRenderer.sprite = sprite;
         }
     }
 
