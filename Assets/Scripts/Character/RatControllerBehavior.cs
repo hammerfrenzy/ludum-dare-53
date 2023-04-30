@@ -26,7 +26,7 @@ public class RatControllerBehavior : MonoBehaviour
     public bool isClimbing = false;
     public bool isInteracting = false;
 
-    private InteractStation currentInteractStation = null;
+    private IInteractStation currentInteractStation = null;
 
     // Start is called before the first frame update
     private void Awake()
@@ -121,14 +121,25 @@ public class RatControllerBehavior : MonoBehaviour
         characterController.Move(movement * Speed * Time.deltaTime);
     }
 
-    public void ChangeControl(bool giveControl, bool stopInteracting)
+    public void ChangeControl(bool giveControl)
     {
-        var stopDueToLossOfControl = !giveControl && currentInteractStation != null;
-        if (stopInteracting || stopDueToLossOfControl)
+        if (currentInteractStation != null)
         {
-            isInteracting = false;
-            currentInteractStation.SetInteracting(isInteracting, this);
-        }
+            // Don't stop important things like putting 
+            // out a fire just because we changed rats.
+            var stationKeepsWorking = currentInteractStation.RetainControlOnSwap;
+            if (stationKeepsWorking)
+            {
+                // Was previously set to false during update while not in control.
+                // Shouldn't need to call SetInteracting again though.
+                isInteracting = true;
+            }
+            else
+            {
+                isInteracting = false;
+                currentInteractStation.SetInteracting(isInteracting, this);
+            }
+        }       
 
         isBeingControlled = giveControl;
         selectedTriangle.GetComponent<SpriteRenderer>().enabled = giveControl;
@@ -151,7 +162,7 @@ public class RatControllerBehavior : MonoBehaviour
     {
         if (other.gameObject.tag == "Station")
         {
-            currentInteractStation = other.GetComponent<InteractStation>();
+            currentInteractStation = other.GetComponent<IInteractStation>();
         }
     }
 

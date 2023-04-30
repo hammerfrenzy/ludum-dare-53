@@ -92,7 +92,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        ratOnHarpoon.ChangeControl(giveControl: true, stopInteracting: true);
+        ratOnHarpoon.ChangeControl(true);
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
     }
 

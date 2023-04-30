@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrottleStation : MonoBehaviour, InteractStation
+public class ThrottleStation : MonoBehaviour, IInteractStation
 {
+    public bool RetainControlOnSwap { get { return false; } }
+
     private bool isInteracting;
 
     public GameObject throttleLeverUI;

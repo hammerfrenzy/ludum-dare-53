@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelmStation : MonoBehaviour, InteractStation
+public class HelmStation : MonoBehaviour, IInteractStation
 {
+    public bool RetainControlOnSwap { get { return false; } }
     public string stationName = "Helm";
 
     public GameObject steeringUi;

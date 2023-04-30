@@ -13,7 +13,7 @@ public class RatSwapperBehavior : MonoBehaviour
     void Start()
     {
         var firstRat = RatControllers[controlledIndex];
-        firstRat.ChangeControl(true, false);
+        firstRat.ChangeControl(true);
 
         cameraTargets = FindObjectsOfType<CameraTargetBehavior>();
         ActivateCameraClosestToRat(firstRat);
@@ -40,7 +40,7 @@ public class RatSwapperBehavior : MonoBehaviour
         {
             var ratController = RatControllers[i];
             var giveControl = controlledIndex == i;
-            ratController.ChangeControl(giveControl, false);
+            ratController.ChangeControl(giveControl);
 
             // Activate the closest camera target to this rat
             if (giveControl)
