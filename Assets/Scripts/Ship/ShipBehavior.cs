@@ -39,7 +39,7 @@ public class ShipBehavior : MonoBehaviour
 
 
         dropStation.SetDeliveryAvailable(shipMovement.isOverUninfectedInnocentTown());
-        
+        dropStation.SetInnocentTown(shipMovement.currentTown);
     }
 
     public void DamageHullIntegrity(int damage)

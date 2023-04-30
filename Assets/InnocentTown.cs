@@ -21,6 +21,7 @@ public class InnocentTown : MonoBehaviour
 
     public void InfectTown()
     {
+        infected = true;
         spriteRenderer.color = Color.green;
     }
 }

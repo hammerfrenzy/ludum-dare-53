@@ -10,7 +10,7 @@ public class ShipMovement : MonoBehaviour
     public float turnSpeed;
     public float turnProgress;
 
-    private InnocentTown currentTown = null;
+    public InnocentTown currentTown = null;
 
     // Start is called before the first frame update
     void Start()

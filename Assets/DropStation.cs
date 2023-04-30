@@ -11,13 +11,16 @@ public class DropStation : MonoBehaviour, IInteractStation
     private bool isInteracting;
     SpriteRenderer interactUi;
     SpriteRenderer leverUi;
-    private float leverProgress = 0f;
     private RatControllerBehavior interactingRat;
+
+    private float leverProgress = 0f;
 
     private bool isStuck = true;
     private float stuckLength = 100f;
     private float stuckProgress = 0f;
     public bool RetainControlOnSwap { get { return false; } }
+
+    private InnocentTown innocentTown = null;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,11 @@ public class DropStation : MonoBehaviour, IInteractStation
     // Update is called once per frame
     void Update()
     {
+        if(!isAvailable && interactingRat != null)
+        {
+            interactingRat.ChangeControl(true);
+        }
+
         interactUi.GetComponent<SpriteRenderer>().enabled = isAvailable;
 
         if (!isInteracting) { return; }
@@ -57,6 +65,8 @@ public class DropStation : MonoBehaviour, IInteractStation
                 {
                     ResetProgress();
                     interactingRat.ChangeControl(true);
+                    interactingRat = null;
+                    if (innocentTown != null) innocentTown.InfectTown();
                 }
             }
         }
@@ -75,6 +85,11 @@ public class DropStation : MonoBehaviour, IInteractStation
     {
         isInteracting = interacting;
         interactingRat = rat;
+    }
+
+    public void SetInnocentTown(InnocentTown town)
+    {
+        innocentTown = town;
     }
 
     private void ResetProgress()
