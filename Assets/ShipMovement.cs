@@ -23,9 +23,9 @@ public class ShipMovement : MonoBehaviour
         var desiredVector = new Vector3((float)(xComponent * Time.deltaTime), (float)(yComponent * Time.deltaTime)) * speed;
         currentVector = desiredVector;
 
-        speed = 0.050f;
+        speed = 0.05f;
         turnProgress = 0f;
-        turnSpeed = 0.0000005f;
+        turnSpeed = 0.005f;
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class ShipMovement : MonoBehaviour
     {
         if(isAtBorder)
         {
-            desiredHeading += 90;
+            desiredHeading += 180;
             isAtBorder = false;
         }
         var xComponent = Mathf.Sin(Mathf.Deg2Rad * desiredHeading);
@@ -42,14 +42,14 @@ public class ShipMovement : MonoBehaviour
 
         if (desiredVector != currentVector)
         {
-            turnProgress += turnSpeed;
+            turnProgress += turnSpeed * Time.deltaTime;
         }
 
         if(desiredVector == currentVector)
         {
             turnProgress = 0.0f;
         }
-
+        
         currentVector = Vector3.Lerp(currentVector, desiredVector, turnProgress);
 
         transform.eulerAngles = new Vector3(0, 0, Vector3.SignedAngle(new Vector3(0, 1, 0), currentVector, new Vector3(0, 0, 1)));

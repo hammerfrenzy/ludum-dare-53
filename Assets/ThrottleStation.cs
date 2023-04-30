@@ -22,7 +22,7 @@ public class ThrottleStation : MonoBehaviour, IInteractStation
         if (!isInteracting) { return; }
 
         var dx = Input.GetAxis("Horizontal");
-        speedPercentage += -dx * 18.0f * Time.deltaTime;
+        speedPercentage += -dx * 22.0f * Time.deltaTime;
         speedPercentage = Mathf.Clamp(speedPercentage, 0f, 100f);
     }
     void FixedUpdate()
