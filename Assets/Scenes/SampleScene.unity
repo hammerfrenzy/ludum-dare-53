@@ -2196,6 +2196,7 @@ MonoBehaviour:
   FireHazardTemplate: {fileID: 1893887557212517484, guid: 7281743e93cb8d34f9daf5bf5d696eac, type: 3}
   PunchGloveStation: {fileID: 1318421891}
   AltimeterStation: {fileID: 1400960863}
+  RatSwapper: {fileID: 600063502}
   MainDeckHazardTransform: {fileID: 54114811}
   EngineRoomHazardTransform: {fileID: 636409891}
   BalloonDeckHazardTransform: {fileID: 724727008}
@@ -3067,6 +3068,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0005976, y: 1, z: 0.2}
   m_Center: {x: 0.0002981736, y: 0, z: 0}
+--- !u!114 &600063502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5019109457726670371, guid: 78a9267ce2f6cf241a60b30888a4f4f3, type: 3}
+  m_PrefabInstance: {fileID: 1561729697848977648}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869d4c53a79017d49a94a027dd1ba349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &636409890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4110,6 +4122,10 @@ PrefabInstance:
     - target: {fileID: 3019256429509431042, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3329888891094848100, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
+      propertyPath: isHorace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4996696817805548350, guid: 52abcca3f7451f24dac40b3d40482f3f, type: 3}
       propertyPath: m_Enabled

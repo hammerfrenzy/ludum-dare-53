@@ -8,6 +8,7 @@ public class RatSwapperBehavior : MonoBehaviour
 
     private CameraTargetBehavior[] cameraTargets;
     private int controlledIndex = 0;
+    private bool isInMinigame = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,17 @@ public class RatSwapperBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isInMinigame) { return; }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ActivateNextRat();
         }
+    }
+
+    public void SetIsInMinigame(bool isInMinigame)
+    {
+        this.isInMinigame = isInMinigame;
     }
 
     private void ActivateNextRat()
