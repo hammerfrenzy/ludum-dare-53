@@ -9,12 +9,12 @@ public class StartScreenAirshipScript : MonoBehaviour
     void Start()
     {
         transform
-            .DOMoveY(transform.position.y - 20, 15)
+            .DOMoveY(transform.position.y - 18, 15)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutQuad);
 
         transform
-            .DOMoveX(transform.position.x - 4, 20)
+            .DOMoveX(transform.position.x - 6, 20)
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.InOutQuad);
     }
