@@ -8805,6 +8805,7 @@ MonoBehaviour:
   FullLeftTransform: {fileID: 1111565233}
   FullRightTransform: {fileID: 849261392}
   steeringUi: {fileID: 0}
+  indicatorRenderer: {fileID: 1189922221}
 --- !u!65 &1672940451
 BoxCollider:
   m_ObjectHideFlags: 0
