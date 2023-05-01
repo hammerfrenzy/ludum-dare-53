@@ -105,7 +105,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         availableHazardLocations.Remove(location);
 
         // Test specific hazards by uncommenting below
-        location = HazardLocation.Altimeter;
+        //location = HazardLocation.Altimeter;
 
         switch (location)
         {
