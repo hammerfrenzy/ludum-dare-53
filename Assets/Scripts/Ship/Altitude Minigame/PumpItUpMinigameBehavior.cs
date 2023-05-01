@@ -14,6 +14,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
     public SpriteRenderer PumpRenderer;
 
     private RatControllerBehavior returnToRat;
+    private RatSwapperBehavior ratSwapper;
     private AltimeterStation station;
     private bool isPlayingMinigame = false;
     private bool isPumpUp = false;
@@ -27,6 +28,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         // we'll manually increment this one
         ProgressBar.SetMakeProgress(false);
         audioManager = FindObjectOfType<AudioManager>();
+        ratSwapper = FindObjectOfType<RatSwapperBehavior>();
     }
 
     // Update is called once per frame
@@ -90,6 +92,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
+        ratSwapper.SetIsInMinigame(false);
         returnToRat.ChangeControl(true);
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
     }

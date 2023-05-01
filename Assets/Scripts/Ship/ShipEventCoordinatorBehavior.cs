@@ -170,11 +170,6 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         // return hazard location to available list
         availableHazardLocations.Add(hazard.Location);
         activeHazards.Remove(hazard);
-
-        if (hazard.Location == HazardLocation.Bird || hazard.Location == HazardLocation.Altimeter)
-        {
-            RatSwapper.SetIsInMinigame(false);
-        }
     }
 
     public void HazardDestroyedTheShip()

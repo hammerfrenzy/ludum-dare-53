@@ -27,6 +27,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
     private PunchGloveStation station;
     private RatControllerBehavior ratOnHarpoon;
     private SpriteRenderer spriteRenderer;
+    private RatSwapperBehavior ratSwapper;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
         birdStartPosition = Bird.transform.position;
         crosshairStartPosition = Crosshair.transform.position;
         spriteRenderer = Bird.GetComponent<SpriteRenderer>();
+        ratSwapper = FindObjectOfType<RatSwapperBehavior>();
     }
 
     // Update is called once per frame
@@ -108,6 +110,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
         
         yield return new WaitForSeconds(delay);
 
+        ratSwapper.SetIsInMinigame(false);
         ratOnHarpoon.ChangeControl(true);
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
         spriteRenderer.sprite = SadBirdSprite;
