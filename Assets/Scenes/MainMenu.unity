@@ -732,6 +732,12 @@ MonoBehaviour:
     pitch: 0.93
     loop: 0
     source: {fileID: 0}
+  - name: Fire Loop
+    clip: {fileID: 8300000, guid: 480674a64b79bab4097a75eb7a0edf0c, type: 3}
+    volume: 0.419
+    pitch: 0.93
+    loop: 1
+    source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0
 --- !u!4 &991826438
