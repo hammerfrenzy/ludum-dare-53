@@ -18,8 +18,12 @@ public class DropStation : MonoBehaviour, IInteractStation
     private float leverProgress = 0f;
 
     private bool isStuck = true;
-    private float stuckLength = 100f;
+    private float stuckLength = 66f;
     private float stuckProgress = 0f;
+
+    private bool finishPause = false;
+    private float pauseLength = 0.7f;
+    private float pauseTimer = 0f;
     public bool RetainControlOnSwap { get { return false; } }
 
     private InnocentTown innocentTown = null;
@@ -41,6 +45,24 @@ public class DropStation : MonoBehaviour, IInteractStation
     // Update is called once per frame
     void Update()
     {
+        if (finishPause)
+        {
+            pauseTimer += Time.deltaTime;
+
+            if(pauseTimer <= pauseLength)
+            {
+                return;
+            }
+            else
+            {
+                ResetProgress();
+                pauseTimer = 0f;
+                interactingRat.ChangeControl(true, false);
+                interactingRat = null;
+                finishPause = false;
+            }
+        }
+
         interactUi.GetComponent<SpriteRenderer>().enabled = isAvailable;
         dropTutorial.enabled = isInteracting;
 
@@ -67,18 +89,18 @@ public class DropStation : MonoBehaviour, IInteractStation
             }
             else
             {
-                leverProgress += dx * 68.0f * Time.deltaTime;
+                leverProgress += dx * 700.0f * Time.deltaTime;
                 leverProgress = Mathf.Clamp(leverProgress, 0f, 100f);
                 leverUi.transform.eulerAngles = new Vector3(0, 0, -110 * (leverProgress / 100) + 10);
-                if(leverProgress == 100)
+
+                if (leverProgress == 100)
                 {
                     audioManager.Play("Delivery Chute Open");
                     cargoSpawnerBehavior.MakeDelivery();
-                    ResetProgress();
-                    voiceManager.PlayDelivery(interactingRat.isRico, interactingRat.isHorace, interactingRat.isNixie);
-                    interactingRat.ChangeControl(true, false);
-                    interactingRat = null;
                     if (innocentTown != null) innocentTown.InfectTown();
+                    voiceManager.PlayDelivery(interactingRat.isRico, interactingRat.isHorace, interactingRat.isNixie);
+
+                    finishPause = true;
                 }
             }
         }
@@ -115,5 +137,10 @@ public class DropStation : MonoBehaviour, IInteractStation
         stuckProgress = 0;
         leverProgress = 0;
         leverUi.transform.eulerAngles = new Vector3(0, 0, 10);
+    }
+
+    public IEnumerator EndAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
     }
 }
