@@ -22,6 +22,14 @@ public class ShipBehavior : MonoBehaviour
 
     ShipEventCoordinatorBehavior shipEventCoordinatorBehavior;
 
+    public bool HasStartedInfecting 
+    { 
+        get
+        {
+            return innocentTowns.Any(t => t.infected);
+        } 
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -20,6 +20,7 @@ public enum HazardLocation
 public class ShipEventCoordinatorBehavior : MonoBehaviour
 {
     public GameObject FireHazardTemplate;
+    public ShipBehavior ShipBehavior;
     public PunchGloveStation PunchGloveStation;
     public AltimeterStation AltimeterStation;
     public RatSwapperBehavior RatSwapper;
@@ -61,13 +62,21 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
             HazardLocation.MainDeck,
         };
 
-        // How frequently should hazards occur?
-        timeToNextHazard = Random.Range(defaultMinHazardTime, defaultMaxHazardTime);
+        foreach (var alert in alertUIBehaviors)
+        {
+            alert.Hide();
+        }
+
+        // First hazard should be 5-7 seconds after first delivery
+        timeToNextHazard = Random.Range(5, 7);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // No hazards until first delivery
+        if (!ShipBehavior.HasStartedInfecting) { return; }
+
         timeToNextHazard -= Time.deltaTime;
         if (timeToNextHazard <= 0)
         {
@@ -105,7 +114,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         availableHazardLocations.Remove(location);
 
         // Test specific hazards by uncommenting below
-        location = HazardLocation.MainDeck;
+        //location = HazardLocation.MainDeck;
 
         switch (location)
         {

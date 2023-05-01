@@ -2478,6 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireHazardTemplate: {fileID: 1893887557212517484, guid: 7281743e93cb8d34f9daf5bf5d696eac, type: 3}
+  ShipBehavior: {fileID: 1525116484}
   PunchGloveStation: {fileID: 1318421891}
   AltimeterStation: {fileID: 1400960863}
   RatSwapper: {fileID: 600063502}
@@ -6827,50 +6828,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2131219139249528461, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131219139249528461, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131219139249528461, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131219139249528461, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2131219139249528461, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3591658189942408966, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237174154419729023, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237174154419729023, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237174154419729023, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237174154419729023, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237174154419729023, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6307835969641474762, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -6914,46 +6871,6 @@ PrefabInstance:
     - target: {fileID: 6307835969641474762, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730994055804591859, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730994055804591859, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730994055804591859, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730994055804591859, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6730994055804591859, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575945952840349780, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575945952840349780, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575945952840349780, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575945952840349780, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minScalar
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7575945952840349780, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
-      propertyPath: InitialModule.startSpeed.minMaxState
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9024319793565553850, guid: 63d7b847994c8d04fbf7460ed11886c5, type: 3}
       propertyPath: m_Name
@@ -7765,8 +7682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426624238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.02, y: 6.05, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: 56.721, y: 6.21, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.14285715}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
