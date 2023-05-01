@@ -10574,9 +10574,9 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Walking (Metal Floor)
-    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
-    volume: 0.101
-    pitch: 1.41
+    clip: {fileID: 8300000, guid: 2c2159d83db739b4fae77505b78ab264, type: 3}
+    volume: 0.199
+    pitch: 1.17
     loop: 1
     source: {fileID: 0}
   - name: Bird Station Thump
