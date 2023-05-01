@@ -500,7 +500,7 @@ MonoBehaviour:
   sounds:
   - name: Background Music
     clip: {fileID: 8300000, guid: c330dceebab8c764289f63252275c229, type: 3}
-    volume: 0.211
+    volume: 0.156
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
@@ -724,6 +724,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 82263fac72aadf54ea0eb66b30dfcd13, type: 3}
     volume: 0.253
     pitch: 1.01
+    loop: 0
+    source: {fileID: 0}
+  - name: Balloon Pop Hiss
+    clip: {fileID: 8300000, guid: 46335206cd5758943b5fb51331fb6f9b, type: 3}
+    volume: 0.456
+    pitch: 0.93
     loop: 0
     source: {fileID: 0}
   muteSfx: 0
