@@ -6895,7 +6895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1349624048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.251, y: 1.344, z: 0}
+  m_LocalPosition: {x: -0.59, y: 1.36, z: -1.937549}
   m_LocalScale: {x: 0.11688459, y: 0.11688459, z: 0.23376918}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8405,7 +8405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555609379}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.52, y: 2.4, z: 0}
+  m_LocalPosition: {x: -1.62, y: 2.73, z: -1.937549}
   m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -10574,9 +10574,9 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Walking (Metal Floor)
-    clip: {fileID: 8300000, guid: 2c2159d83db739b4fae77505b78ab264, type: 3}
-    volume: 0.199
-    pitch: 1.17
+    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
+    volume: 0.101
+    pitch: 1.41
     loop: 1
     source: {fileID: 0}
   - name: Bird Station Thump
