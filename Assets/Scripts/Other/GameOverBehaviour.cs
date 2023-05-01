@@ -2,31 +2,46 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverBehaviour : MonoBehaviour
 {
-    Text gameOverText;
+    public Text ResultText;
+    public GameObject VictoryRoot;
+    public GameObject GameOverRoot;
 
-    void Awake()
+    void Start()
     {
-        gameOverText = GameObject.Find("Game Over Text").GetComponent<Text>();
+        //GameValues.FakeForGameOver();
+        
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
-        var gameOverString = GameValues.IsWin ? "You spread the plague in " : "You kept the ship alive for ";
+        var gameOverString = GameValues.IsWin ? "ye spread the plague in " : "yer ship was sank after ";
 
-        gameOverString += timeSpan.ToString("mm':'ss") + "!!";
+        gameOverString += timeSpan.ToString("mm':'ss");
 
-        gameOverText.text = gameOverString;
+        ResultText.text = gameOverString;
+
+        if (GameValues.IsWin)
+        {
+            VictoryRoot.SetActive(true);
+        }
+        else
+        {
+            GameOverRoot.SetActive(true);
+        }
     }
 
-    public void WinScreen()
+    private void Update()
     {
-
-    }
-
-    public void LoseScreen()
-    {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
