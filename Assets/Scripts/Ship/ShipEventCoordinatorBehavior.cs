@@ -128,7 +128,8 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void StartAFire(HazardLocation location)
     {
-        FindObjectOfType<AudioManager>().Play("Explosion");
+        audioManager.Play("Explosion");
+        audioManager.Play("Fire Loop");
         Vector3 firePosition;
         switch (location)
         {
@@ -171,6 +172,15 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         // return hazard location to available list
         availableHazardLocations.Add(hazard.Location);
         activeHazards.Remove(hazard);
+
+        var ohLawdTheresAFire = activeHazards.Any(x => x.Location == HazardLocation.MainDeck || 
+            x.Location == HazardLocation.EngineRoom || 
+            x.Location == HazardLocation.BalloonRoom);
+
+        if(!ohLawdTheresAFire)
+        {
+            audioManager.Stop("Fire Loop");
+        }
     }
 
     public void HazardDestroyedTheShip()
