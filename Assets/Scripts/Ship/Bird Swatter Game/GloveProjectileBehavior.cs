@@ -14,7 +14,7 @@ public class GloveProjectileBehavior : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 5);
-        birdSpriteRenderer = GetComponent<SpriteRenderer>();
+        birdSpriteRenderer = parent.Bird.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
