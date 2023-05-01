@@ -186,7 +186,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         }
         else if (hazard.Location == HazardLocation.BalloonRoom)
         {
-            GameObject.Find("Ballon Deck Fire").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("Balloon Deck Fire").GetComponent<SpriteRenderer>().enabled = false;
         }
 
         var ohLawdTheresAFire = activeHazards.Any(x => x.Location == HazardLocation.MainDeck || 
