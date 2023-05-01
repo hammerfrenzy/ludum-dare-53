@@ -143,7 +143,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
                 break;
             case HazardLocation.BalloonRoom:
                 firePosition = BalloonDeckHazardTransform.position;
-                GameObject.Find("Ballon Deck Fire").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("Balloon Deck Fire").GetComponent<SpriteRenderer>().enabled = true;
                 break;
             default:
                 firePosition = Vector3.negativeInfinity;
