@@ -19,12 +19,14 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
     private bool isPumpUp = false;
     private int requiredPumps = 10;
     private int numberOfPumps = 0;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         // we'll manually increment this one
         ProgressBar.SetMakeProgress(false);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,6 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         if (isPumpUp && Input.GetKeyDown(KeyCode.S))
         {
             TogglePump();
-
         }
         else if (!isPumpUp && Input.GetKeyDown(KeyCode.W))
         {
@@ -51,6 +52,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         {
             numberOfPumps++;
             ProgressBar.ManuallyProgress(1);
+            audioManager.Play("Pump Sound");
         }
 
         var newSprite = isPumpUp ? PumpUp : PumpDown;

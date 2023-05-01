@@ -61,6 +61,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.source.volume;
         }
     }
+
     public void Play(string name)
     {
         if (muteSfx) return;
