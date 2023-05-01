@@ -10569,13 +10569,13 @@ MonoBehaviour:
   sounds:
   - name: Background Music
     clip: {fileID: 8300000, guid: c330dceebab8c764289f63252275c229, type: 3}
-    volume: 0.156
+    volume: 0.213
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
   - name: Walking (Metal Floor)
-    clip: {fileID: 8300000, guid: f56d075eadf670d4eaff98a720e31d02, type: 3}
-    volume: 0.101
+    clip: {fileID: 8300000, guid: 2c2159d83db739b4fae77505b78ab264, type: 3}
+    volume: 0.149
     pitch: 1.41
     loop: 1
     source: {fileID: 0}
