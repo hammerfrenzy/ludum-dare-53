@@ -10095,6 +10095,12 @@ MonoBehaviour:
     pitch: 1.01
     loop: 0
     source: {fileID: 0}
+  - name: Balloon Pop Hiss
+    clip: {fileID: 8300000, guid: 46335206cd5758943b5fb51331fb6f9b, type: 3}
+    volume: 0.456
+    pitch: 0.93
+    loop: 0
+    source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0
 --- !u!4 &2097932967

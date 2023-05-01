@@ -154,6 +154,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     public void StartPumpMinigame()
     {
+        audioManager.Play("Balloon Pop Hiss");
         AltimeterStation.TriggerBalloonDeflation(this, 35);
         activeHazards.Add(AltimeterStation);
     }
