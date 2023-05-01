@@ -58,14 +58,17 @@ public class ShipMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "InnocentTown")
-        {
-            currentTown = other.GetComponent<InnocentTown>();
-        }
-
         if(other.gameObject.tag == "MapBorder")
         {
             isAtBorder = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "InnocentTown")
+        {
+            currentTown = other.GetComponent<InnocentTown>();
         }
     }
 
