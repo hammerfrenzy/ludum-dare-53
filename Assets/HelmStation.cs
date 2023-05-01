@@ -27,6 +27,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
     }
 
     public GameObject steeringUi;
+    public SpriteRenderer indicatorRenderer;
 
     private float steeringSensitivity = 0.20f;
     private float heading = 0.5f;
@@ -38,7 +39,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
     {
         steeringUi = GameObject.Find("SteeringUI");
 
-        UpdateHeadingIndicator();
+        //UpdateHeadingIndicator();
         helmTutorial = GameObject.Find("HelmTutorial").GetComponent<MeshRenderer>();
     }
 
@@ -52,12 +53,21 @@ public class HelmStation : MonoBehaviour, IInteractStation
 
         heading += dx * steeringSensitivity * Time.deltaTime;
         heading = Mathf.Clamp01(heading);
-        UpdateHeadingIndicator();        
+        UpdateHeadingIndicator(dx);        
     }
 
-    private void UpdateHeadingIndicator()
+    private void UpdateHeadingIndicator(float dx)
     {
         HeadingIndicator.transform.position = Vector3.Lerp(FullLeftTransform.position, FullRightTransform.position, heading);
+        
+        if (dx < 0)
+        {
+            indicatorRenderer.flipX = true;
+        }
+        else
+        {
+            indicatorRenderer.flipX = false;
+        }
     }
 
     void FixedUpdate()
