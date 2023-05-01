@@ -112,6 +112,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
         ratSwapper.SetIsInMinigame(false);
         ratOnHarpoon.ChangeControl(true);
+        ratOnHarpoon.HazardHasCompleted();
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
         spriteRenderer.sprite = BirdSprite;
     }

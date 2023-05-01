@@ -58,6 +58,7 @@ public class DropStation : MonoBehaviour, IInteractStation
                 ResetProgress();
                 pauseTimer = 0f;
                 interactingRat.ChangeControl(true, false);
+                interactingRat.HazardHasCompleted();
                 interactingRat = null;
                 finishPause = false;
             }
