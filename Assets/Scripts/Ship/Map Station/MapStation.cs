@@ -6,13 +6,11 @@ public class MapStation : MonoBehaviour, IInteractStation
 {
     public GameObject tutorialText;
     MeshRenderer mapTutorial;
-    Transform mapCameraTarget;
     public bool RetainControlOnSwap { get { return false; } }
 
     void Start()
     {
         mapTutorial = GameObject.Find("MapTutorial").GetComponent<MeshRenderer>();
-        mapCameraTarget = GameObject.Find("MapCameraTarget").GetComponent<Transform>();
     }
 
     public void SetInteracting(bool isInteracting, RatControllerBehavior rat)
