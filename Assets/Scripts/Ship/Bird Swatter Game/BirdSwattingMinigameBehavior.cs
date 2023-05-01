@@ -110,7 +110,7 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
 
         ratOnHarpoon.ChangeControl(true);
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
-        spriteRenderer.sprite = SadBirdSprite;
+        spriteRenderer.sprite = BirdSprite;
     }
 
     public void FireHarpoon()

@@ -80,6 +80,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 
     private void WeArePumpedToTheMax()
     {
+        audioManager.Stop("Balloon Pop Hiss");
         isPlayingMinigame = false;
         StartCoroutine(EndAfterDelay(0.5f));
     }
