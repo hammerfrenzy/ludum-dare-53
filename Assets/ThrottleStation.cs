@@ -8,17 +8,20 @@ public class ThrottleStation : MonoBehaviour, IInteractStation
 
     private bool isInteracting;
 
-    public GameObject throttleLeverUI;
+    private GameObject throttleLeverUI;
     public float speedPercentage;
+    MeshRenderer throttleTutorial;
 
     // Start is called before the first frame update
     void Start()
     {
         throttleLeverUI = GameObject.Find("ThrottleLeverUI");
+        throttleTutorial = GameObject.Find("ThrottleTutorial").GetComponent<MeshRenderer>();
     }
 
     void Update()
     {
+        throttleTutorial.enabled = isInteracting;
         if (!isInteracting) { return; }
 
         var dx = Input.GetAxis("Horizontal");

@@ -12,6 +12,8 @@ public class HelmStation : MonoBehaviour, IInteractStation
     public Transform FullLeftTransform;
     public Transform FullRightTransform;
 
+    MeshRenderer helmTutorial;
+
     /// <summary>
     /// Used by ShipBehavior to update ship movement.
     /// Is a range from -90 to 90.
@@ -39,11 +41,13 @@ public class HelmStation : MonoBehaviour, IInteractStation
         //steeringInput = 0.0f;
 
         UpdateHeadingIndicator();
+        helmTutorial = GameObject.Find("HelmTutorial").GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        helmTutorial.enabled = isInteracting;
         if (!isInteracting) { return; }
 
         var dx = Input.GetAxis("Horizontal");

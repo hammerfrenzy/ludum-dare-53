@@ -24,6 +24,8 @@ public class DropStation : MonoBehaviour, IInteractStation
     private InnocentTown innocentTown = null;
     CargoSpawnerBehavior cargoSpawnerBehavior;
 
+    MeshRenderer dropTutorial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +34,14 @@ public class DropStation : MonoBehaviour, IInteractStation
         cargoSpawnerBehavior = GameObject.FindObjectOfType<CargoSpawnerBehavior>();
         voiceManager = FindObjectOfType<VoicelineManager>();
         audioManager = FindObjectOfType<AudioManager>();
+        dropTutorial = GameObject.Find("DropTutorial").GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         interactUi.GetComponent<SpriteRenderer>().enabled = isAvailable;
+        dropTutorial.enabled = isInteracting;
 
         if (!isInteracting) { return; }
 
