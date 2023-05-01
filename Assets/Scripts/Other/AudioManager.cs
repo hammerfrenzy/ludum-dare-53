@@ -12,6 +12,15 @@ public class AudioManager : MonoBehaviour
     public bool muteBgm = false;
     void Awake()
     {
+        if (FindObjectsOfType<AudioManager>().Length > 1)
+        {
+            // there's already one in the scene.
+            // this is probably cause main menu.
+            // leave it in game scene so we don't 
+            // have to start from main menu each time.
+            Destroy(gameObject);
+            return;
+        }
         if (instance == null)
         {
             instance = this;
