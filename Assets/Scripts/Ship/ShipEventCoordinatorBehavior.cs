@@ -135,12 +135,15 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         {
             case HazardLocation.MainDeck:
                 firePosition = MainDeckHazardTransform.position;
+                GameObject.Find("Main Deck Fire").GetComponent<SpriteRenderer>().enabled = true;
                 break;
             case HazardLocation.EngineRoom:
                 firePosition = EngineRoomHazardTransform.position;
+                GameObject.Find("Engine Room Fire").GetComponent<SpriteRenderer>().enabled = true;
                 break;
             case HazardLocation.BalloonRoom:
                 firePosition = BalloonDeckHazardTransform.position;
+                GameObject.Find("Ballon Deck Fire").GetComponent<SpriteRenderer>().enabled = true;
                 break;
             default:
                 firePosition = Vector3.negativeInfinity;
@@ -172,6 +175,19 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         // return hazard location to available list
         availableHazardLocations.Add(hazard.Location);
         activeHazards.Remove(hazard);
+
+        if (hazard.Location == HazardLocation.MainDeck)
+        {
+            GameObject.Find("Main Deck Fire").GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else if (hazard.Location == HazardLocation.EngineRoom)
+        {
+            GameObject.Find("Engine Room Fire").GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else if (hazard.Location == HazardLocation.BalloonRoom)
+        {
+            GameObject.Find("Ballon Deck Fire").GetComponent<SpriteRenderer>().enabled = false;
+        }
 
         var ohLawdTheresAFire = activeHazards.Any(x => x.Location == HazardLocation.MainDeck || 
             x.Location == HazardLocation.EngineRoom || 
