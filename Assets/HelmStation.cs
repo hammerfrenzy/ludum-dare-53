@@ -60,11 +60,15 @@ public class HelmStation : MonoBehaviour, IInteractStation
     {
         HeadingIndicator.transform.position = Vector3.Lerp(FullLeftTransform.position, FullRightTransform.position, heading);
         
-        if (dx < 0)
+        if (dx == 0)
+        {
+            indicatorRenderer.flipX = indicatorRenderer.flipX;
+        }
+        else if (dx < 0)
         {
             indicatorRenderer.flipX = true;
         }
-        else
+        else if (dx > 0)
         {
             indicatorRenderer.flipX = false;
         }
