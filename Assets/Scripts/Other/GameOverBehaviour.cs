@@ -6,27 +6,29 @@ using UnityEngine.UI;
 
 public class GameOverBehaviour : MonoBehaviour
 {
-    Text gameOverText;
+    public Text ResultText;
+    public GameObject VictoryRoot;
+    public GameObject GameOverRoot;
 
-    void Awake()
+    void Start()
     {
-        gameOverText = GameObject.Find("Game Over Text").GetComponent<Text>();
+        GameValues.FakeForGameOver();
+        
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
-        var gameOverString = GameValues.IsWin ? "You spread the plague in " : "You kept the ship alive for ";
+        var gameOverString = GameValues.IsWin ? "ye spread the plague in " : "yer ship was sank after ";
 
-        gameOverString += timeSpan.ToString("mm':'ss") + "!!";
+        gameOverString += timeSpan.ToString("mm':'ss");
 
-        gameOverText.text = gameOverString;
-    }
+        ResultText.text = gameOverString;
 
-    public void WinScreen()
-    {
-
-    }
-
-    public void LoseScreen()
-    {
-
+        if (GameValues.IsWin)
+        {
+            VictoryRoot.SetActive(true);
+        }
+        else
+        {
+            GameOverRoot.SetActive(true);
+        }
     }
 }
