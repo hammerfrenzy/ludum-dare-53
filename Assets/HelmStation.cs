@@ -26,8 +26,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
         }
     }
 
-    //public float steeringInput;
-    //public GameObject steeringUi;
+    public GameObject steeringUi;
 
     private float steeringSensitivity = 0.20f;
     private float heading = 0.5f;
@@ -37,8 +36,7 @@ public class HelmStation : MonoBehaviour, IInteractStation
     // Start is called before the first frame update
     void Start()
     {
-        //steeringUi = GameObject.Find("SteeringUI");
-        //steeringInput = 0.0f;
+        steeringUi = GameObject.Find("SteeringUI");
 
         UpdateHeadingIndicator();
         helmTutorial = GameObject.Find("HelmTutorial").GetComponent<MeshRenderer>();
@@ -62,12 +60,11 @@ public class HelmStation : MonoBehaviour, IInteractStation
         HeadingIndicator.transform.position = Vector3.Lerp(FullLeftTransform.position, FullRightTransform.position, heading);
     }
 
-    //void FixedUpdate()
-    //{
-    //    steeringUi.GetComponent<SpriteRenderer>().enabled = isInteracting;
-
-    //    steeringUi.transform.eulerAngles = new Vector3(0,0,-steeringInput);
-    //}
+    void FixedUpdate()
+    {
+        var angle = 180 * heading - 90;
+        steeringUi.transform.eulerAngles = new Vector3(0, 0, -angle);
+    }
 
     public bool CanInteract() { return true; }
 
