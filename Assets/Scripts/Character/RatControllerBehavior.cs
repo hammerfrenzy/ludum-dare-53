@@ -69,7 +69,6 @@ public class RatControllerBehavior : MonoBehaviour
             {
                 dy = 0;
             }
-
         }
 
         if (isBeingControlled)

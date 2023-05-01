@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class MapStation : MonoBehaviour, IInteractStation
 {
-    Vector3 ogPosition;
-    float ogSize;
-
+    public GameObject tutorialText;
+    MeshRenderer mapTutorial;
     public bool RetainControlOnSwap { get { return false; } }
+
+    void Start()
+    {
+        mapTutorial = GameObject.Find("MapTutorial").GetComponent<MeshRenderer>();
+    }
 
     public void SetInteracting(bool isInteracting, RatControllerBehavior rat)
     {
-        ogPosition = Camera.main.transform.position;
-        ogSize = Camera.main.orthographicSize;
         ZoomCamera(isInteracting);
     }
 
     public void ZoomCamera(bool zoom)
     {
+        mapTutorial.enabled = zoom;
         if (zoom)
         {
             Camera.main.transform.position -= new Vector3(4.4f, 1.0f);
