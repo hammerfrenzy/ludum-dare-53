@@ -96,10 +96,12 @@ public class BirdSwattingMinigameBehavior : MonoBehaviour
         crosshairMovementTween.Kill();
 
         var birdBody = Bird.GetComponent<Rigidbody>();
-        var torque = Random.Range(-4, 4);
-        birdBody.AddTorque(new Vector3(0, 0, torque), ForceMode.Impulse);
+        var torque = Random.Range(20, 30);
+        torque = Random.Range(0, 2) == 1 ? torque : -torque;
         birdBody.useGravity = true;
         birdBody.isKinematic = false;
+        birdBody.AddForce(Vector3.left * 2, ForceMode.Impulse);
+        birdBody.AddTorque(new Vector3(0, 0, torque), ForceMode.Impulse);
 
         StartCoroutine(EndAfterDelay(1.5f));
     }

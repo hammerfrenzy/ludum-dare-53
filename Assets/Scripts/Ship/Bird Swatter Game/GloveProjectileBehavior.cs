@@ -36,10 +36,11 @@ public class GloveProjectileBehavior : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Sad Bird Call");
         birdSpriteRenderer.sprite = parent.SadBirdSprite;
         var rigidbody = GetComponent<Rigidbody>();
-        var torque = Random.Range(-4, 4);
-        rigidbody.AddTorque(new Vector3(0, 0, torque), ForceMode.Impulse);
+        var torque = Random.Range(20, 30);
+        torque = Random.Range(0, 2) == 1 ? torque : -torque;
         rigidbody.useGravity = true;
         rigidbody.isKinematic = false;
+        rigidbody.AddTorque(new Vector3(0, 0, torque), ForceMode.Impulse);
 
         parent.EndTheHarpoons();
     }
