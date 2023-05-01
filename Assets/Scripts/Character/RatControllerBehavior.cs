@@ -135,25 +135,7 @@ public class RatControllerBehavior : MonoBehaviour
     }
 
     public void ChangeControl(bool giveControl, bool shouldQuip = true)
-    {
-
-        //if (isInteracting && currentInteractStation != null)
-        //{
-        //    // Don't stop important things like putting 
-        //    // out a fire just because we changed rats.
-        //    var stationKeepsWorking = currentInteractStation.RetainControlOnSwap;
-        //    if (stationKeepsWorking)
-        //    {
-        //        // Was previously set to false during update while not in control.
-        //        // Shouldn't need to call SetInteracting again though.
-        //        isInteracting = true;
-        //    }
-        //    else
-        //    {
-        //        isInteracting = false;
-        //        currentInteractStation.SetInteracting(isInteracting, this);
-        //    }
-        //}       
+    { 
 
         if (isInteracting && currentInteractStation != null)
         {
