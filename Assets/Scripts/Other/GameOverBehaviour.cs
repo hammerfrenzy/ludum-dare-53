@@ -12,7 +12,7 @@ public class GameOverBehaviour : MonoBehaviour
 
     void Start()
     {
-        GameValues.FakeForVictory();
+        GameValues.FakeForGameOver();
         
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
