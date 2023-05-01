@@ -10970,6 +10970,12 @@ MonoBehaviour:
     pitch: 0.93
     loop: 1
     source: {fileID: 0}
+  - name: Douse Loop
+    clip: {fileID: 8300000, guid: 52073724a84e6c94d896365b507cabb7, type: 3}
+    volume: 0.382
+    pitch: 0.93
+    loop: 1
+    source: {fileID: 0}
   muteSfx: 0
   muteBgm: 0
 --- !u!4 &2097932967

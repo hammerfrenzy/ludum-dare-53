@@ -58,6 +58,7 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat = rat;
             ProgressBar.SetMakeProgress(true);
             DoomBar.SetMakeProgress(false);
+            FindObjectOfType<AudioManager>().Play("Douse Loop");
         }
         else
         {
@@ -65,6 +66,7 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat = null;
             ProgressBar.SetMakeProgress(false);
             DoomBar.SetMakeProgress(true);
+            FindObjectOfType<AudioManager>().Stop("Douse Loop");
         }
     }
 
@@ -86,6 +88,7 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat.HazardHasCompleted();    
         }
 
+        FindObjectOfType<AudioManager>().Stop("Douse Loop");
         coordinator.HazardWasResolved(this);
         Destroy(gameObject);
     }
