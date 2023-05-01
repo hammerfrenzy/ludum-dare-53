@@ -6,7 +6,7 @@ using UnityEngine;
 public class RatControllerBehavior : MonoBehaviour
 {
 
-    Animator animator;
+    public Animator animator;
     VoicelineManager voiceManager;
     AudioManager audioManager;
 
@@ -31,6 +31,7 @@ public class RatControllerBehavior : MonoBehaviour
     public bool isWalking = false;
     public bool isClimbing = false;
     public bool isInteracting = false;
+    public bool isBucketing = false;
 
     private IInteractStation currentInteractStation = null;
 

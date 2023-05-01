@@ -58,11 +58,15 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat = rat;
             ProgressBar.SetMakeProgress(true);
             DoomBar.SetMakeProgress(false);
+            assignedRat.isBucketing = true;
+            assignedRat.animator.SetBool("isBucketing", true);
             FindObjectOfType<AudioManager>().Play("Douse Loop");
         }
         else
         {
             Debug.Log($"{rat.name} stopped working on the fire.");
+            assignedRat.isBucketing = false;
+            assignedRat.animator.SetBool("isBucketing", false);
             assignedRat = null;
             ProgressBar.SetMakeProgress(false);
             DoomBar.SetMakeProgress(true);
@@ -88,6 +92,8 @@ public class ShipFireHazardBehavior : MonoBehaviour, IShipHazard, IInteractStati
             assignedRat.HazardHasCompleted();    
         }
 
+        assignedRat.isBucketing = false;
+        assignedRat.animator.SetBool("isBucketing", false);
         FindObjectOfType<AudioManager>().Stop("Douse Loop");
         coordinator.HazardWasResolved(this);
         Destroy(gameObject);
