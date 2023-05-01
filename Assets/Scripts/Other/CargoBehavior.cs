@@ -23,6 +23,7 @@ public class CargoBehavior : MonoBehaviour
         foreach (var box in boxes)
         {
             box.isKinematic = false;
+            box.AddExplosionForce(30f, new Vector3(-2.57f, -9.144f, 2.36f), 5f);
         }
     }
 
