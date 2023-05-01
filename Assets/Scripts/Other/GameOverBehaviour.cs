@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverBehaviour : MonoBehaviour
@@ -12,7 +13,7 @@ public class GameOverBehaviour : MonoBehaviour
 
     void Start()
     {
-        GameValues.FakeForGameOver();
+        //GameValues.FakeForGameOver();
         
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
@@ -29,6 +30,18 @@ public class GameOverBehaviour : MonoBehaviour
         else
         {
             GameOverRoot.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }
