@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,7 +38,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
     private float timeToNextHazard = float.MaxValue;
 
-    private List<HazardLocation> availableHazardLocations;
+    private HashSet<HazardLocation> availableHazardLocations;
     private List<IShipHazard> activeHazards;
 
     private float defaultMinHazardTime = 20;
@@ -51,7 +52,7 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
 
         activeHazards = new List<IShipHazard>();
 
-        availableHazardLocations = new List<HazardLocation>
+        availableHazardLocations = new HashSet<HazardLocation>
         {
             HazardLocation.Altimeter,
             HazardLocation.Bird,
@@ -100,11 +101,11 @@ public class ShipEventCoordinatorBehavior : MonoBehaviour
         }
 
         var index = Random.Range(0, availableHazardLocations.Count);
-        var location = availableHazardLocations[index];
-        availableHazardLocations.RemoveAt(index);
+        var location = availableHazardLocations.ElementAt(index);// [index];
+        availableHazardLocations.Remove(location);
 
         // Test specific hazards by uncommenting below
-        location = HazardLocation.Bird;
+        //location = HazardLocation.Altimeter;
 
         switch (location)
         {
