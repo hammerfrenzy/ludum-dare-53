@@ -1,5 +1,8 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Collections.Generic;
 
 
 //call AudioManager by using FindObjectOfType<AudioManager>().Play("Sound_Name");
@@ -42,6 +45,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        SceneManager.activeSceneChanged += StopNonEndgameSounds;
     }
 
     private void Start()
@@ -107,5 +112,20 @@ public class AudioManager : MonoBehaviour
     public void ToggleSFX()
     {
         muteSfx = !muteSfx;
+    }
+
+    private void StopNonEndgameSounds(Scene current, Scene next)
+    {
+        var endgameSounds = new List<string>()
+        {
+            "Background Music",
+            "Background Wind",
+            "Ship Creaking"
+        };
+
+        foreach (var sound in sounds.Where(s => !endgameSounds.Contains(s.name)))
+        {
+            sound.source.Stop();
+        }
     }
 }

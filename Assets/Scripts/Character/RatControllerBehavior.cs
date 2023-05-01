@@ -34,7 +34,6 @@ public class RatControllerBehavior : MonoBehaviour
 
     private IInteractStation currentInteractStation = null;
 
-    private bool wasInteractingBeforeSwap = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -144,7 +143,6 @@ public class RatControllerBehavior : MonoBehaviour
         }
 
         isBeingControlled = giveControl;
-        wasInteractingBeforeSwap = isInteracting;
         selectionRenderer.enabled = giveControl;
 
         if (giveControl && voiceManager != null && shouldQuip) 

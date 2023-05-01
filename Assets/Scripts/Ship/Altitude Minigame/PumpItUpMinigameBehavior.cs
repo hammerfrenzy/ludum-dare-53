@@ -95,6 +95,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 
         ratSwapper.SetIsInMinigame(false);
         returnToRat.ChangeControl(true);
+        returnToRat.HazardHasCompleted();
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
     }
 }
