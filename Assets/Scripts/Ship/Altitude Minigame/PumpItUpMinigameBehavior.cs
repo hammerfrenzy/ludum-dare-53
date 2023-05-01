@@ -78,6 +78,7 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
 
     private void WeArePumpedToTheMax()
     {
+        isPlayingMinigame = false;
         StartCoroutine(EndAfterDelay(0.5f));
     }
 
@@ -88,7 +89,6 @@ public class PumpItUpMinigameBehvaior : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         returnToRat.ChangeControl(true);
-        station.FinishedPumping();
         Camera.main.transform.position = ReturnCameraTarget.transform.position;
     }
 }

@@ -8,6 +8,7 @@ public class GloveProjectileBehavior : MonoBehaviour
     private BirdSwattingMinigameBehavior parent;
     private float speed = 5f;
     private SpriteRenderer birdSpriteRenderer;
+    private bool hitBird = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,8 @@ public class GloveProjectileBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Bird") { return; }
-
+        if (other.gameObject.tag != "Bird" || hitBird) { return; }
+        hitBird = true;
         // make it go silly
         FindObjectOfType<AudioManager>().Play("Sad Bird Call");
         birdSpriteRenderer.sprite = parent.SadBirdSprite;
