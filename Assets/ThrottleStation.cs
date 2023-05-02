@@ -39,6 +39,10 @@ public class ThrottleStation : MonoBehaviour, IInteractStation
     // Update is called once per frame
     public void SetInteracting(bool interacting, RatControllerBehavior rat)
     {
+        if(!interacting)
+        {
+            rat.ChangeControl(true);
+        }
         isInteracting = interacting;
     }
 }

@@ -140,7 +140,13 @@ public class RatControllerBehavior : MonoBehaviour
         if (isInteracting && currentInteractStation != null)
         {
             isInteracting = currentInteractStation.RetainControlOnSwap;
+            animator.SetBool("isInteracting", isInteracting);
             currentInteractStation.SetInteracting(currentInteractStation.RetainControlOnSwap, this);
+        }
+        else if(currentInteractStation == null)
+        {
+            isInteracting = false;
+            animator.SetBool("isInteracting", isInteracting);
         }
 
         isBeingControlled = giveControl;
