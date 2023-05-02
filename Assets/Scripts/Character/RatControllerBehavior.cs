@@ -42,13 +42,13 @@ public class RatControllerBehavior : MonoBehaviour
         voiceManager = FindObjectOfType<VoicelineManager>();
         selectionRenderer = selectedTriangle.GetComponent<SpriteRenderer>();
         selectionTriangle = selectionRenderer.sprite;
+        animator = GetComponent<Animator>();
     }
 
     void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
