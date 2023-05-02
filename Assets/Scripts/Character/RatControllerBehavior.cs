@@ -152,8 +152,6 @@ public class RatControllerBehavior : MonoBehaviour
         isBeingControlled = giveControl;
         selectionRenderer.enabled = giveControl;
 
-        animator.SetBool("isInteracting", isInteracting);
-
         if (giveControl && voiceManager != null && shouldQuip) 
         {
             voiceManager.PlayQuip(isRico, isHorace, isNixie);
