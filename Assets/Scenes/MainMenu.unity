@@ -1172,7 +1172,7 @@ Transform:
   m_GameObject: {fileID: 1701846995}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.77, y: 9.8, z: 0}
-  m_LocalScale: {x: 2.6315622, y: 1, z: 1}
+  m_LocalScale: {x: 3.6052403, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1631,6 +1631,9 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4861762450911870341, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
     - {fileID: 4986350061451978548, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
+    - {fileID: 4359667707346927358, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
+    - {fileID: 2793327669030617293, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
+    - {fileID: 6365229720192626313, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4511742759506358095, guid: d97bde9a78fe84b42a5a78f5fc9abc18, type: 3}
       insertIndex: 1
