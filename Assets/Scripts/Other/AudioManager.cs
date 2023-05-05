@@ -120,7 +120,8 @@ public class AudioManager : MonoBehaviour
         {
             "Background Music",
             "Background Wind",
-            "Ship Creaking"
+            "Ship Creaking",
+            "Delivery Chute Open"
         };
 
         foreach (var sound in sounds.Where(s => !endgameSounds.Contains(s.name)))

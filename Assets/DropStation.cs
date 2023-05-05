@@ -22,8 +22,10 @@ public class DropStation : MonoBehaviour, IInteractStation
     private float stuckProgress = 0f;
 
     private bool finishPause = false;
-    private float pauseLength = 0.7f;
+    private float pauseLength = 0.55f;
     private float pauseTimer = 0f;
+    private RatSwapperBehavior ratSwapper;
+
     public bool RetainControlOnSwap { get { return false; } }
 
     private InnocentTown innocentTown = null;
@@ -40,6 +42,8 @@ public class DropStation : MonoBehaviour, IInteractStation
         voiceManager = FindObjectOfType<VoicelineManager>();
         audioManager = FindObjectOfType<AudioManager>();
         dropTutorial = GameObject.Find("DropTutorial").GetComponent<MeshRenderer>();
+
+        ratSwapper = FindObjectOfType<RatSwapperBehavior>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class DropStation : MonoBehaviour, IInteractStation
             {
                 ResetProgress();
                 pauseTimer = 0f;
+                ratSwapper.SetIsInMinigame(false);
                 interactingRat.ChangeControl(true, false);
                 interactingRat.HazardHasCompleted();
                 interactingRat = null;
@@ -120,6 +125,10 @@ public class DropStation : MonoBehaviour, IInteractStation
     {
         isInteracting = interacting;
         interactingRat = rat;
+        if(interacting)
+        {
+            ratSwapper.SetIsInMinigame(true);
+        }
     }
 
     public bool CanInteract()

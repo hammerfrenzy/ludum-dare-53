@@ -55,6 +55,11 @@ public class ShipBehavior : MonoBehaviour
             shipEventCoordinatorBehavior.GameOver(isWin: true);
         }
 
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            shipEventCoordinatorBehavior.GameOver(isWin: false);
+        }
+
         shipMovement.desiredHeading += helmStation.SteeringInput * 0.18f * Time.deltaTime;
         shipMovement.speed = (throttleStation.speedPercentage/100) * maxSpeed;
 
