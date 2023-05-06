@@ -5059,7 +5059,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0:00.00
+  m_Text: 'Time: 00:00.00'
 --- !u!222 &940232454
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5085,7 +5085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -150, y: -20}
+  m_AnchoredPosition: {x: -275, y: -20}
   m_SizeDelta: {x: 128.9022, y: 102.4085}
   m_Pivot: {x: 0, y: 1}
 --- !u!4 &944761097 stripped

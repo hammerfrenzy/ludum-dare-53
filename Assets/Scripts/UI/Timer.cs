@@ -35,6 +35,6 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
-        timerText.text = timeOnClock.ToString("mm':'ss'.'ff");
+        timerText.text = ("Time: " + timeOnClock.ToString("mm':'ss'.'ff"));
     }
 }
