@@ -17,9 +17,9 @@ public class GameOverBehaviour : MonoBehaviour
         
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
 
-        var gameOverString = GameValues.IsWin ? "ye spread the plague in " : "yer ship was sank after ";
+        var gameOverString = GameValues.IsWin ? "Ye delivered the plague in " : "Yer ship crashed after ";
 
-        gameOverString += timeSpan.ToString("mm':'ss");
+        gameOverString += timeSpan.ToString("mm':'ss'.'ff");
 
         ResultText.text = gameOverString;
 
