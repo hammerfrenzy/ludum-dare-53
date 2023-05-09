@@ -44,6 +44,7 @@ public class GameOverBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(1);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
