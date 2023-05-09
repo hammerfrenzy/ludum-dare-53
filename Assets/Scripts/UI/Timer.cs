@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +33,6 @@ public class Timer : MonoBehaviour
 
     private void SetTimerText()
     {
-        timerText.text = ("Time: " + timeOnClock.ToString("mm':'ss'.'ff"));
+        timerText.text = ("Time: " + timeOnClock.ToString("mm':'ss'.'fff"));
     }
 }

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,24 +6,33 @@ using UnityEngine.UI;
 public class GameOverBehaviour : MonoBehaviour
 {
     public Text ResultText;
+    public Text ResultTime;
+    public Text GameOverTimeInMilliseconds;
     public GameObject VictoryRoot;
     public GameObject GameOverRoot;
+    public GameObject LeaderboardUI;
+    public GameObject NameInputUI;
 
     void Start()
     {
-        //GameValues.FakeForGameOver();
+        //GameValues.FakeForVictory();
         
         TimeSpan timeSpan = TimeSpan.FromSeconds(GameValues.TimeInAir);
+        int timeSpanMilliseconds = (int)Math.Round(GameValues.TimeInAir * 1000);
 
-        var gameOverString = GameValues.IsWin ? "Ye delivered the plague in " : "Yer ship crashed after ";
+        var gameOverString = GameValues.IsWin ? "Ye spread da plague in " : "Yer ship crashed after ";
 
-        gameOverString += timeSpan.ToString("mm':'ss'.'ff");
+        var gameOverTime = timeSpan.ToString("mm':'ss'.'fff");
 
         ResultText.text = gameOverString;
+        ResultTime.text = gameOverTime;
+        GameOverTimeInMilliseconds.text = timeSpanMilliseconds.ToString();
 
         if (GameValues.IsWin)
         {
             VictoryRoot.SetActive(true);
+            LeaderboardUI.SetActive(true);
+            NameInputUI.SetActive(true);
         }
         else
         {
