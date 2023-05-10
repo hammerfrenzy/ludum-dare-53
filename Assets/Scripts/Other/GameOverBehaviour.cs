@@ -49,6 +49,7 @@ public class GameOverBehaviour : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            PlayerPrefs.DeleteAll();
             Application.Quit();
         }
     }

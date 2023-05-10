@@ -9,7 +9,6 @@ public class MainMenuBehavior : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            PlayerPrefs.DeleteAll();
             SceneManager.LoadScene("SampleScene");
         }
     }

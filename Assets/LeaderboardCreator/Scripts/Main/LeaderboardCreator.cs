@@ -160,7 +160,7 @@ namespace Dan.Main
                 Requests.Field("username", username),
                 Requests.Field("score", score.ToString()),
                 Requests.Field("extra", extra),
-                Requests.Field("userGuid", UserGuid)), callback);
+                Requests.Field("userGuid", Guid.NewGuid().ToString())), callback);
         }
 
         /// <summary>
